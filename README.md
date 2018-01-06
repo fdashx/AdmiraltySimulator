@@ -34,3 +34,4 @@ Notes:
  - Right click on the column header to see a "Filter Editor" that provides more flexible filtering
  - In some situations where you don't want to use your one time use ship cards, set filter on the "Ships" column in the results table to be does not contain "(1x)"
  - At the very end of the results table, there's a "Custom" column, right click on the header to see a "Expression Editor", you can use to build your own metric for sorting the results
+ - My character's (fdashx) owned ship and one time use ship files are included for reference
