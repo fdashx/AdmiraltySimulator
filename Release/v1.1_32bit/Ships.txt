@@ -1,0 +1,83 @@
+﻿Class F Shuttle, small,2,2,2, 5m, 25 maint any
+Danube Runabout,small,3,2,1,5m,25 maint any
+Type 8 Shuttle, small,4,1,1, 5m, 10 all any
+Captain's Yacht, small,4,3,3, 5m, 5 crit all
+Peregrine Fighter, small,3,4,3,5m,5 crit all
+Type 7 Shuttle, small,5,3,2,5m,5 crit all
+Yellowstone Runabout, small,3,4,3,5m,5 crit all
+Light Cruiser,eng,5,5,5,30m,2 crit event
+Utility Cruiser,eng,6,5,4,30m,2 crit event
+Phoenix Replica Smallcraft, small,7,5,4,0m, ignore all
+TOS Light Cruiser, eng,6,6,6,30m,2.5 crit eng
+Cruiser,eng,14,8,8,2h,8 eng sci,8 eng tac
+Escort,tac,8,14,8,2h,8 tac eng,8 tac sci
+Temporal Science Vessel, sci,6,11,19,2h, ignore sci
+Heavy Cruiser,eng,23,11,11,4h,2.5 crit eng
+Support Cruiser, eng,22,10,13,4h,1.5 crit eng,1.5 crit sci
+Research Science Vessel,sci,11,11,23,4h,2.5 crit sci
+Temporal Escort, tac,9,30,15,4h, ignore tac
+Long Range Science Vessel,sci,12,12,36,8h,8 sci eng,8 sci tac
+Exploration Cruiser,eng,36,12,12,8h,8 eng sci,8 eng tac
+Temporal Cruiser, eng,38,20,14,4h, ignore eng
+Reconnaissance Science Vessel,sci,11,17,47,12h,10 tac tac
+Assault Cruiser, eng,47,17,11,12h, 10 tac tac
+Obelisk Carrier, eng,37,15,23,12h,2 crit event
+Mirror Assault Cruiser,eng,50,12,21,12h,10 sci tac
+Mirror Patrol Escort, tac,21,50,12,12h, 10 sci sci
+Battle Cruiser, eng,36,42,12,12h, 10 sci sci
+Exploration Cruiser Retrofit, eng,55,15,20,12h, 20 sci alone, 20 tac alone
+Temporal Battlecruiser, eng,42,31,17,12h,3.5 crit sci
+Long Range Science Vessel Retrofit,sci,20,15,55,12h,5 tac eng,5 tac tac,5 eng eng,5 eng tac
+Chimera Heavy Destroyer, tac,30,48,12,12h, 8 sci sci, 8 sci eng
+Tactical Escort Retrofit,tac,20,55,15,12h,5 eng sci,5 eng eng,5 sci sci,5 sci eng
+Andorian Charal Escort, tac,24,54,20,12h, 35 eng alone
+Andorian Khyzon Escort, tac,20,54,24,12h, 35 sci alone
+Andorian Kumari Escort, tac,20,58,20,12h, 35 tac alone
+Jem'Hadar Dreadnought Carrier, tac,44,45,16,12h, 8 eng sci, 8 eng tac
+Risian Corvette, tac,33,51,21,12h, 10 tac sci
+Advanced Heavy Cruiser (T6), eng,67,25,16,18h,25 maint eng
+Battlecruiser (T6), eng,41,50,17,18h,25 maint tac
+Exploration Cruiser (T6), eng,70,19,19,18h, 8 sci tac, 8 tac tac
+Guardian Cruiser (T6), eng,66,21,21,18h,2.5 crit tac
+Temporal Battlecruiser (T6), eng,47,44,17,18h,2 crit event
+Temporal Cruiser (T6), eng,56,26,26,18h, 10 eng sci
+Long Range Science Vessel (T6),sci,21,21,66,18h,2.5 crit sci
+Scryer Intel Science Vessel (T6), sci,26,22,60,18h, 10 tac sci
+Temporal Science Vessel (T6), sci,22,36,50,18h, 10 sci eng
+Advanced Escort (T6), tac,16,68,24,18h, 10 tac eng
+Heavy Escort Carrier (T6),tac,25,65,18,18h,8 sci eng,8 sci tac
+Phantom Intel Escort (T6),tac,26,60,22,18h,10 eng tac
+Heavy Destroyer (T6), tac,35,57,16,18h,25 maint sci
+Temporal Escort (T6), tac,22,56,30,18h, 10 tac eng
+Concorde Command Battlecruiser (T6), eng,77,20,20,18h, 35 eng alone
+Presidio Command Battlecruiser (T6), eng,73,24,20,18h, 35 tac alone
+Fleet Battlecruiser (T6), eng,43,55,19,18h, 8 eng any
+Geneva Command Battlecruiser (T6), eng,73,20,24,18h, 35 sci alone
+Operations Star Cruiser (T6), eng,65,26,26,18h, 10 eng tac
+Science Star Cruiser (T6), eng,63,18,36,18h, 10 sci eng
+Tactical Star Cruiser (T6), eng,56,36,25,18h, 10 tac sci
+Temporal Dreadnought Cruiser (T6), eng,51,41,25,18h, ignore eng
+Temporal Multi-Mission Science Vessel (T6), sci,32,29,56,18h, ignore sci
+Ajax Pilot Escort (T6), tac,26,66,25,18h, 35 eng alone
+Icarus Pilot Escort (T6), tac,22,66,29,18h, 35 sci alone
+Mercury Pilot Escort (T6),tac,22,70,25,18h,35 tac alone
+Temporal Raider (T6), tac,32,55,30,18h, ignore tac
+Herald Quas Flight Deck Cruiser (T6),eng,64,29,33,18h,35 tac alone
+Kelvin Timeline Heavy Command Cruiser (T6), eng,62,36,28,18h, 20 eng alone, 20 tac alone
+Kelvin Timeline Intel Dreadnought Cruiser (T6), eng,59,48,19,18h, ignore tac
+Vorgon Ryn'kodan Carrier (T6), eng,74,26,26,18h, 8 sci eng, 8 tac eng
+Lukari Ho'kuun Science Vessel (T6), sci,42,20,64,18h, 10 sci sci
+Ferengi Nandi Warship (T6),tac,22,60,44,18h,10 maint eng,10 maint sci
+Vaadwaur Manasa Assault Escort (T6),tac,42,64,20,18h,10 eng eng
+Herald Vonph Dreadnought Carrier (T6),tac,26,68,32,18h,35 eng alone
+Krenim Imperium Warship (T6),tac,26,66,34,18h,10 tac sci
+Breen Chel Boalg Warship (T6), tac,40,53,33,18h, 10 tac eng
+Breen Plesh Tral Heavy Raider (T6),tac,24,72,30,18h,8 sci tac,8 eng tac
+I.K.S. Hegh, eng,62,42,31,18h, 20 sci any
+Quark's Triumph, eng,49,45,41,18h,20 maint any
+V.S.S. Tanius, eng,53,39,43,18h, 50 all alone
+U.S.S. Pastak, sci,31,31,73,18h, ignore sci, 8 sci any
+U.S.S. Rhode Island, sci,30,27,78,18h,3 crit all
+R.R.W. Zdenia, tac,23,61,51,18h, 15 eng any, 15 tac any
+# always have the line below
+No Ship, none, 0, 0, 0, 0m

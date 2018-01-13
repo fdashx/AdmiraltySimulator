@@ -1,6 +1,10 @@
 # AdmiraltySimulator
 Tool to help choose the best ship combination for the admiralty mini-game in Star Trek Online
 
+v1.1:
+ - parsing ships should work regardless of language/region
+ - added 32bit version
+
 Features:
  - Analyse all ship combinations and their result for the assignment
  - Choose to go with which ever you think is best

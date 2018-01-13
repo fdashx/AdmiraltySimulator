@@ -1,6 +1,0 @@
-5,Phoenix Replica Smallcraft
-1,Advanced Heavy Cruiser (T6)
-1,Battlecruiser (T6)
-1,Concorde Command Battlecruiser (T6)
-1,Presidio Command Battlecruiser (T6)
-2,No Ship
