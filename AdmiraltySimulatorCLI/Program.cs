@@ -8,7 +8,7 @@ namespace AdmiraltySimulatorCLI
     public class Program
     {
         private static string _profile;
-        private static string _shipFile = "Ships.txt";
+        private static string _shipFile = "Ships.csv";
         private static string _assignmentFile;
         private static double _minSuccess;
         private static int _numResults = 5;
@@ -120,7 +120,7 @@ namespace AdmiraltySimulatorCLI
             Console.WriteLine(AppDomain.CurrentDomain.FriendlyName + " (profile name) [optional args]");
             Console.WriteLine("\nOptional args are:");
             Console.WriteLine(
-                "\t-ships [file path]\t\t\tfile with ship information, default is \"ships.txt\" in the exe location");
+                "\t-ships [file path]\t\t\tfile with ship information, default is \"ships.csv\" in the exe location");
             Console.WriteLine("\t-assignments [assignments path]\t\tanalyse all assignments in file individually");
             Console.WriteLine(
                 "\t-minSuccess [value]\t\t\tspecify the minimum success rate (between 0 to 1) for the result to be listed");

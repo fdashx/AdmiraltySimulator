@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using AdmiraltySimulator;
 
@@ -7,6 +8,7 @@ namespace AdmiraltySimulatorGUI
 {
     public class MainVm : LayoutSaveRestore
     {
+        private const string DefaultShipsFilePath = "ships.csv";
         private readonly IFileDialogService _fileDialogService;
         private string _critChance;
         private string _critRewardMult;
@@ -54,6 +56,7 @@ namespace AdmiraltySimulatorGUI
             ExecuteCmd = new RelayCommand(ExecuteResult);
             CritRewardMult = "1.5";
             ResetAssignment();
+            LoadShipsFile(DefaultShipsFilePath);
         }
 
         public ILogger Logger { get; }
@@ -254,12 +257,17 @@ namespace AdmiraltySimulatorGUI
 
         private void LoadShips()
         {
-            ShipFile = _fileDialogService.OpenFile();
+            var file = _fileDialogService.OpenFile();
 
-            if (ShipFile == null)
+            if (file == null)
                 return;
 
-            if (!ShipManager.LoadShips(ShipFile))
+            LoadShipsFile(file);
+        }
+
+        private void LoadShipsFile(string filePath)
+        {
+            if (!ShipManager.LoadShips(filePath))
                 return;
 
             var ships = new List<ShipVm>();
@@ -268,6 +276,7 @@ namespace AdmiraltySimulatorGUI
                 ships.Add(new ShipVm(ship));
 
             Ships = ships;
+            ShipFile = Path.GetFullPath(filePath);
         }
 
         private void LoadOwned()

@@ -39,7 +39,8 @@ namespace AdmiraltySimulatorGUI
                 _mainView.Height,
                 "log.height=" + _mainView.LogRow.Height.Value,
                 "ships.section.width=" + _mainView.ShipsColumn.Width.Value,
-                "assignment.section.width=" + _mainView.AssignmentColumn.Width.Value
+                "assignment.section.width=" + _mainView.AssignmentColumn.Width.Value,
+                "is.maximised=" + (_mainView.WindowState == WindowState.Maximized)
             };
 
             try
@@ -68,10 +69,10 @@ namespace AdmiraltySimulatorGUI
                     if (line.StartsWith("window.position"))
                     {
                         var pos = line.Substring(idx + 1).Split(',');
-                        _mainView.Left = int.Parse(pos[0], CultureInfo.InvariantCulture);
-                        _mainView.Top = int.Parse(pos[1], CultureInfo.InvariantCulture);
-                        _mainView.Width = int.Parse(pos[2], CultureInfo.InvariantCulture);
-                        _mainView.Height = int.Parse(pos[3], CultureInfo.InvariantCulture);
+                        _mainView.Left = double.Parse(pos[0], CultureInfo.InvariantCulture);
+                        _mainView.Top = double.Parse(pos[1], CultureInfo.InvariantCulture);
+                        _mainView.Width = double.Parse(pos[2], CultureInfo.InvariantCulture);
+                        _mainView.Height = double.Parse(pos[3], CultureInfo.InvariantCulture);
                     }
                     else if (line.StartsWith("log.height"))
                     {
@@ -87,6 +88,10 @@ namespace AdmiraltySimulatorGUI
                     {
                         _mainView.AssignmentColumn.Width =
                             new GridLength(double.Parse(line.Substring(idx + 1), CultureInfo.InvariantCulture));
+                    }
+                    else if (line.StartsWith("is.maximised"))
+                    {
+                        _mainView.WindowState = WindowState.Maximized;
                     }
                 }
             }
