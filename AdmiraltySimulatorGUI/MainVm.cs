@@ -9,6 +9,9 @@ namespace AdmiraltySimulatorGUI
     public class MainVm : LayoutSaveRestore
     {
         private const string DefaultShipsFilePath = "ships.csv";
+        private const string DefaultProfilesDirectory = "profiles";
+        private const string FileSuffixOwned = "_owned.txt";
+        private const string FileSuffixOneTime = "_onetime.txt";
         private readonly IFileDialogService _fileDialogService;
         private string _critChance;
         private string _critRewardMult;
@@ -20,6 +23,7 @@ namespace AdmiraltySimulatorGUI
         private string _eventMaintOff;
         private string _oneTimeShipFile;
         private string _ownedShipFile;
+        private List<Profile> _profiles;
         private List<ResultVm> _results;
         private string _sciMod;
         private string _sciReq;
@@ -36,6 +40,8 @@ namespace AdmiraltySimulatorGUI
         private string _totalCrit;
         private string _totalMaint;
         private string _totalSlot;
+        private Profile _selectedProfile;
+        private string _newProfileName;
 
         public MainVm(ILogger logger,
             IFileDialogService fileDialogService,
@@ -49,14 +55,16 @@ namespace AdmiraltySimulatorGUI
             AssignmentParser = assignmentParser;
             Simulator = simulator;
             LoadShipFileCmd = new RelayCommand(LoadShips);
-            LoadOwnedShipFileCmd = new RelayCommand(LoadOwned);
-            LoadOneTimeShipFileCmd = new RelayCommand(LoadOneTimeUse);
+            LoadProfileCmd = new RelayCommand(LoadProfile);
+            CreateNewProfileCmd = new RelayCommand(CreateNewProfile);
             SaveChangeCmd = new RelayCommand(SaveChanges);
             SimulateCmd = new RelayCommand(Simulate);
             ExecuteCmd = new RelayCommand(ExecuteResult);
             CritRewardMult = "1.5";
+            Profiles = new List<Profile>();
             ResetAssignment();
             LoadShipsFile(DefaultShipsFilePath);
+            LoadAvailableProfiles();
         }
 
         public ILogger Logger { get; }
@@ -71,8 +79,8 @@ namespace AdmiraltySimulatorGUI
         }
 
         public RelayCommand LoadShipFileCmd { get; }
-        public RelayCommand LoadOwnedShipFileCmd { get; }
-        public RelayCommand LoadOneTimeShipFileCmd { get; }
+        public RelayCommand LoadProfileCmd { get; }
+        public RelayCommand CreateNewProfileCmd { get; }
         public RelayCommand SaveChangeCmd { get; }
         public RelayCommand SimulateCmd { get; }
         public RelayCommand ExecuteCmd { get; }
@@ -97,6 +105,24 @@ namespace AdmiraltySimulatorGUI
         {
             get => _shipFile;
             set => SetProperty(ref _shipFile, value, nameof(ShipFile));
+        }
+
+        public List<Profile> Profiles
+        {
+            get => _profiles;
+            set => SetProperty(ref _profiles, value, nameof(Profiles));
+        }
+
+        public Profile SelectedProfile
+        {
+            get => _selectedProfile;
+            set => SetProperty(ref _selectedProfile, value, nameof(SelectedProfile));
+        }
+
+        public string NewProfileName
+        {
+            get => _newProfileName;
+            set => SetProperty(ref _newProfileName, value, nameof(NewProfileName));
         }
 
         public string OwnedShipFile
@@ -279,26 +305,67 @@ namespace AdmiraltySimulatorGUI
             ShipFile = Path.GetFullPath(filePath);
         }
 
-        private void LoadOwned()
+        private void LoadAvailableProfiles()
         {
-            OwnedShipFile = _fileDialogService.OpenFile();
+            try
+            {
+                Profiles = new List<Profile>(Directory.EnumerateFiles(DefaultProfilesDirectory, "*" + FileSuffixOwned)
+                    .Select(f => new Profile
+                    {
+                        Name = Path.GetFileName(f).Replace(FileSuffixOwned, ""),
+                        FilePath = f
+                    }));
+            }
+            catch (Exception e)
+            {
+                Logger.WriteLine("Cannot load available profiles:\n" + e);
+            }
+        }
+
+        private void LoadProfile()
+        {
+            OwnedShipFile = SelectedProfile?.FilePath;
 
             if (OwnedShipFile == null)
                 return;
 
             ShipManager.LoadOwned(OwnedShipFile);
+            var oneTimeShipFile = Path.Combine(Path.GetDirectoryName(SelectedProfile?.FilePath) ?? string.Empty,
+                SelectedProfile.Name + FileSuffixOneTime);
+
+            if (File.Exists(oneTimeShipFile))
+            {
+                OneTimeShipFile = oneTimeShipFile;
+                ShipManager.LoadOneTimeUse(OneTimeShipFile);
+            }
+
             RefreshShips();
         }
 
-        private void LoadOneTimeUse()
+        public void CreateNewProfile()
         {
-            OneTimeShipFile = _fileDialogService.OpenFile();
-
-            if (OneTimeShipFile == null)
+            if (string.IsNullOrWhiteSpace(NewProfileName))
+            {
+                Logger.WriteLine("No new profile name specified.");
                 return;
+            }
 
-            ShipManager.LoadOneTimeUse(OneTimeShipFile);
-            RefreshShips();
+            var profilePathOwned = Path.Combine(DefaultProfilesDirectory, NewProfileName + FileSuffixOwned);
+
+            if (File.Exists(profilePathOwned))
+            {
+                Logger.WriteLine($"Profile {NewProfileName} already exists.");
+                return;
+            }
+
+            var profilePathOneTime = Path.Combine(DefaultProfilesDirectory, NewProfileName + FileSuffixOneTime);
+            File.Create(profilePathOwned).Dispose();
+            File.Create(profilePathOneTime).Dispose();
+            Logger.WriteLine("New profile created.");
+            LoadAvailableProfiles();
+            SelectedProfile = Profiles.FirstOrDefault(p => p.Name == NewProfileName);
+            LoadProfile();
+            NewProfileName = null;
         }
 
         private void RefreshShips()
@@ -335,7 +402,7 @@ namespace AdmiraltySimulatorGUI
             var resultVms = new List<ResultVm>();
             var results = Simulator.GetResults(assignment, true);
 
-            foreach (var result in Simulator.GetTop(results, new[] {"name"}, results.Count))
+            foreach (var result in Simulator.GetTop(results, new[] { "name" }, results.Count))
                 resultVms.Add(new ResultVm(result));
 
             Results = resultVms;

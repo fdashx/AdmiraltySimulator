@@ -37,18 +37,22 @@
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" Grid.Column="0" Content="Load Ship Database..."
+                <Button Grid.Row="0" Grid.Column="0" Content="Load Ships Data..."
                         Command="{Binding LoadShipFileCmd}" VerticalAlignment="Center" Margin="5,0,0,0" />
                 <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ShipFile}" VerticalAlignment="Center"
                          Margin="0,0,5,0" />
-                <Button Grid.Row="1" Grid.Column="0" Content="Load Owned Ships..."
-                        Command="{Binding LoadOwnedShipFileCmd}" VerticalAlignment="Center" Margin="5,0,0,0" />
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding OwnedShipFile}" VerticalAlignment="Center"
-                         Margin="0,0,5,0" />
-                <Button Grid.Row="2" Grid.Column="0" Content="Load One Time Ships..."
-                        Command="{Binding LoadOneTimeShipFileCmd}" VerticalAlignment="Center" Margin="5,0,0,0" />
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding OneTimeShipFile}" VerticalAlignment="Center"
-                         Margin="0,0,5,0" />
+                <Button Grid.Row="1" Grid.Column="0" Content="Load Profile"
+                        Command="{Binding LoadProfileCmd}" VerticalAlignment="Center" Margin="5,0,0,0" />
+                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Profiles}" DisplayMember="Name"
+                                  ValueMember="FilePath" SelectedItem="{Binding SelectedProfile}"
+                                  NullText="-- select profile --" AutoComplete="True" ImmediatePopup="True"
+                                  IncrementalFiltering="True" VerticalAlignment="Center"
+                                  Margin="0,0,5,0" />
+                <Button Grid.Row="2" Grid.Column="0" Content="New Profile" Command="{Binding CreateNewProfileCmd}"
+                        VerticalAlignment="Center" Margin="5,0,0,0" />
+                <dxe:TextEdit Grid.Row="2" Grid.Column="1" Text="{Binding NewProfileName}" NullText="new profile name"
+                              VerticalAlignment="Center"
+                              Margin="0,0,5,0" />
                 <dxg:GridControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Ships}"
                                  dx:DXSerializer.StoreLayoutMode="All" dx:DXSerializer.SerializationID="ShipsGrid">
                     <dxg:GridControl.View>

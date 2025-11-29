@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 
 namespace AdmiraltySimulator
 {
     public class ShipManager
     {
+        private const string NoShip = "No Ship";
         private readonly ILogger _logger;
         private readonly Dictionary<string, Ship> _ships;
 
@@ -37,15 +39,15 @@ namespace AdmiraltySimulator
 
         public List<Ship> GetAllShips()
         {
-            return new List<Ship>(_ships.Values);
+            return new List<Ship>(_ships.Values.Where(s => s.Name != NoShip));
         }
 
         public bool SaveShips(string ownedShipFile, string oneTimeShipFile)
         {
             var owned = new List<string>();
             var oneTime = new List<string>();
-            _ships["No Ship"].IsOwned = false;
-            _ships["No Ship"].OneTimeUses = 2;
+            _ships[NoShip].IsOwned = false;
+            _ships[NoShip].OneTimeUses = 2;
 
             foreach (var ship in _ships.Values)
             {
@@ -88,8 +90,8 @@ namespace AdmiraltySimulator
                     if (TryParseShip(line, out var ship))
                         _ships[ship.Name] = ship;
 
-                if (!_ships.ContainsKey("No Ship"))
-                    _ships["No Ship"] = new Ship("No Ship", ShipType.None, 0, 0, 0, new TimeSpan(0), new IAbility[0]);
+                if (!_ships.ContainsKey(NoShip))
+                    _ships[NoShip] = new Ship(NoShip, ShipType.None, 0, 0, 0, new TimeSpan(0), new IAbility[0]);
 
                 _logger.WriteLine("Loaded ship database \"" + file + "\"");
                 return true;
@@ -116,7 +118,7 @@ namespace AdmiraltySimulator
                     if (string.IsNullOrWhiteSpace(line))
                         continue;
 
-                    var vals = line.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+                    var vals = line.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                     if (vals.Length == 0)
                     {
@@ -162,7 +164,7 @@ namespace AdmiraltySimulator
                         continue;
                     }
 
-                    var vals = line.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+                    var vals = line.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                     if (vals.Length != 2 || !TryParseInvariant.Int(vals[0].Trim(), out var count))
                     {
@@ -196,7 +198,7 @@ namespace AdmiraltySimulator
                 return false;
             }
 
-            var vals = shipInfo.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+            var vals = shipInfo.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             if (vals.Length < 6)
             {
@@ -205,7 +207,7 @@ namespace AdmiraltySimulator
             }
 
             var name = vals[0].Trim();
-            var timeSpanFmt = new[] {"h'h'm'm'", "h'h'", "m'm'"};
+            var timeSpanFmt = new[] { "h'h'm'm'", "h'h'", "m'm'" };
 
             if (!Enum.TryParse(vals[1].Trim(), true, out ShipType type)
                 || !TryParseInvariant.Int(vals[2].Trim(), out var engVal)
@@ -238,7 +240,7 @@ namespace AdmiraltySimulator
 
         private bool TryParseAbility(string abilityInfo, out IAbility ability)
         {
-            var vals = abilityInfo.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            var vals = abilityInfo.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             ability = null;
             StatType statType;
 
@@ -266,7 +268,7 @@ namespace AdmiraltySimulator
             if (vals[1].ToLowerInvariant() == "maint"
                 && Enum.TryParse(vals[2], true, out ShipType shipType))
             {
-                ability = new MaintOffPerShip(shipType, (int) value);
+                ability = new MaintOffPerShip(shipType, (int)value);
                 return true;
             }
 
@@ -294,13 +296,13 @@ namespace AdmiraltySimulator
 
             if (vals[2].ToLowerInvariant() == "alone")
             {
-                ability = new BonusStatAlone(statType, (int) value);
+                ability = new BonusStatAlone(statType, (int)value);
                 return true;
             }
 
             if (Enum.TryParse(vals[2], true, out shipType))
             {
-                ability = new BonusStatPerShip(statType, (int) value, shipType);
+                ability = new BonusStatPerShip(statType, (int)value, shipType);
                 return true;
             }
 

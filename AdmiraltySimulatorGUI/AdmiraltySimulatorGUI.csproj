@@ -154,6 +154,7 @@
     <Compile Include="FileDialogService.cs" />
     <Compile Include="LayoutSaveRestore.cs" />
     <Compile Include="ListLogger.cs" />
+    <Compile Include="Profile.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ResultVm.cs" />
