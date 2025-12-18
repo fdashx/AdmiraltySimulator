@@ -21,7 +21,7 @@ namespace AdmiraltySimulator
             _minSuccess = minSuccess;
         }
 
-        public List<AssignmentResult> GetResults(Assignment assignment, bool recalcCombination = false)
+        public List<AssignmentResult> GetResults(AssignmentInstance assignmentInstance, bool recalcCombination = false)
         {
             var sw = Stopwatch.StartNew();
 
@@ -40,7 +40,7 @@ namespace AdmiraltySimulator
             var results = new List<AssignmentResult>();
 
             foreach (var combination in _shipCombinations)
-                results.Add(assignment.Start(new[]
+                results.Add(assignmentInstance.Start(new[]
                 {
                     _ships[combination[0]],
                     _ships[combination[1]],

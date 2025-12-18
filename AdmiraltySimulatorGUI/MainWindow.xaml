@@ -34,25 +34,25 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
                     <ColumnDefinition />
+                    <ColumnDefinition Width="150" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" Grid.Column="0" Content="Load Ships Data..."
-                        Command="{Binding LoadShipFileCmd}" VerticalAlignment="Center" Margin="5,0,0,0" />
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ShipFile}" VerticalAlignment="Center"
-                         Margin="0,0,5,0" />
-                <Button Grid.Row="1" Grid.Column="0" Content="Load Profile"
-                        Command="{Binding LoadProfileCmd}" VerticalAlignment="Center" Margin="5,0,0,0" />
-                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Profiles}" DisplayMember="Name"
+                <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding ShipFile}" VerticalAlignment="Center"
+                         Margin="5,0,0,0" />
+                <Button Grid.Row="0" Grid.Column="1" Content="Load Ships Data..."
+                        Command="{Binding LoadShipFileCmd}" VerticalAlignment="Center" Margin="0,0,5,0" />
+                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Profiles}" DisplayMember="Name"
                                   ValueMember="FilePath" SelectedItem="{Binding SelectedProfile}"
                                   NullText="-- select profile --" AutoComplete="True" ImmediatePopup="True"
                                   IncrementalFiltering="True" VerticalAlignment="Center"
-                                  Margin="0,0,5,0" />
-                <Button Grid.Row="2" Grid.Column="0" Content="New Profile" Command="{Binding CreateNewProfileCmd}"
-                        VerticalAlignment="Center" Margin="5,0,0,0" />
-                <dxe:TextEdit Grid.Row="2" Grid.Column="1" Text="{Binding NewProfileName}" NullText="new profile name"
+                                  Margin="5,0,0,0" />
+                <Button Grid.Row="1" Grid.Column="1" Content="Load Profile"
+                        Command="{Binding LoadProfileCmd}" VerticalAlignment="Center" Margin="0,0,5,0" />
+                <dxe:TextEdit Grid.Row="2" Grid.Column="0" Text="{Binding NewProfileName}" NullText="new profile name"
                               VerticalAlignment="Center"
-                              Margin="0,0,5,0" />
+                              Margin="5,0,0,0" />
+                <Button Grid.Row="2" Grid.Column="1" Content="New Profile" Command="{Binding CreateNewProfileCmd}"
+                        VerticalAlignment="Center" Margin="0,0,5,0" />
                 <dxg:GridControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Ships}"
                                  dx:DXSerializer.StoreLayoutMode="All" dx:DXSerializer.SerializationID="ShipsGrid">
                     <dxg:GridControl.View>
@@ -101,8 +101,15 @@
                         <Setter Property="HorizontalAlignment" Value="Center" />
                         <Setter Property="VerticalAlignment" Value="Center" />
                     </Style>
+                    <Style x:Key="LookUpEditGrid" TargetType="dxg:LookUpEdit">
+                        <Setter Property="ImmediatePopup" Value="True" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="5, 0, 5, 0" />
+                        <Setter Property="AutoPopulateColumns" Value="False" />
+                    </Style>
                 </Grid.Resources>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="90" />
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
@@ -127,67 +134,125 @@
                     <ColumnDefinition MinWidth="100" />
                     <ColumnDefinition MinWidth="100" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Reward multiplier when critical:"
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Assignment:" Style="{StaticResource Label}" />
+                    <dxg:LookUpEdit Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Assignments}"
+                                    DisplayMember="Name" SelectedItem="{Binding SelectedAssignment}"
+                                    Style="{StaticResource LookUpEditGrid}">
+                        <dxg:LookUpEdit.PopupContentTemplate>
+                            <ControlTemplate>
+                                <dxg:GridControl x:Name="PART_GridControl">
+                                    <dxg:GridControl.View>
+                                        <dxg:TableView ShowAutoFilterRow="True" FilterEditorShowOperandTypeIcon="True"
+                                                       ShowCriteriaInAutoFilterRow="True" />
+                                    </dxg:GridControl.View>
+                                    <dxg:GridControl.Columns>
+                                        <dxg:GridColumn FieldName="Name" AutoFilterCriteria="Contains" Width="350" />
+                                        <dxg:GridColumn FieldName="Faction" Width="50" />
+                                        <dxg:GridColumn FieldName="Rarity" Width="75" />
+                                        <dxg:GridColumn FieldName="RewardCxp" Header="CXP" Width="50" />
+                                        <dxg:GridColumn FieldName="RewardXp" Header="XP" Width="50" />
+                                        <dxg:GridColumn FieldName="RewardDilithium" Header="Dilithium" Width="50" />
+                                        <dxg:GridColumn FieldName="RewardEc" Header="EC" Width="50" />
+                                        <dxg:GridColumn FieldName="RewardOther" Header="Other Rewards" Width="100" />
+                                        <dxg:GridColumn FieldName="HasCriticalReward" Header="Critical Rewarding"
+                                                        Width="50" />
+                                    </dxg:GridControl.Columns>
+                                </dxg:GridControl>
+                            </ControlTemplate>
+                        </dxg:LookUpEdit.PopupContentTemplate>
+                    </dxg:LookUpEdit>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Event:" Style="{StaticResource Label}" />
+                    <dxg:LookUpEdit Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Events}" DisplayMember="Name"
+                                    SelectedItem="{Binding SelectedEvent}" Style="{StaticResource LookUpEditGrid}">
+                        <dxg:LookUpEdit.PopupContentTemplate>
+                            <ControlTemplate>
+                                <dxg:GridControl x:Name="PART_GridControl">
+                                    <dxg:GridControl.View>
+                                        <dxg:TableView ShowAutoFilterRow="True" FilterEditorShowOperandTypeIcon="True"
+                                                       ShowCriteriaInAutoFilterRow="True" />
+                                    </dxg:GridControl.View>
+                                    <dxg:GridControl.Columns>
+                                        <dxg:GridColumn FieldName="Name" AutoFilterCriteria="Contains" Width="200" />
+                                        <dxg:GridColumn FieldName="Reward" Width="200" />
+                                        <dxg:GridColumn FieldName="RewardEc" Header="EC" Width="50" />
+                                        <dxg:GridColumn FieldName="RewardDilithium" Header="Dilithium" Width="50" />
+                                    </dxg:GridControl.Columns>
+                                </dxg:GridControl>
+                            </ControlTemplate>
+                        </dxg:LookUpEdit.PopupContentTemplate>
+                    </dxg:LookUpEdit>
+                </Grid>
+                <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Top" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Reward multiplier when critical:"
                            Style="{StaticResource Label}" />
-                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CritRewardMult}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="Base Required" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="1" Grid.Column="2" Text="Event Mod" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="1" Grid.Column="3" Text="Slotted/Required" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Eng:" Style="{StaticResource Label}" />
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding EngReq}" Style="{StaticResource Input}" />
-                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding EngMod}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding EngSlot}" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Tac:" Style="{StaticResource Label}" />
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding TacReq}" Style="{StaticResource Input}" />
-                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding TacMod}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding TacSlot}" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Sci:" Style="{StaticResource Label}" />
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SciReq}" Style="{StaticResource Input}" />
-                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding SciMod}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding SciSlot}" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Total:" Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding TotalSlot}" Style="{StaticResource Display}" />
-                <Separator Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
-                <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="Bonus critical from event:"
+                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding CritRewardMult}" Style="{StaticResource Input}" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="Base Required" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="Event Mod" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="2" Grid.Column="3" Text="Slotted/Required" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Eng:" Style="{StaticResource Label}" />
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding EngReq}" Style="{StaticResource Input}" />
+                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding EngMod}" Style="{StaticResource Input}" />
+                <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding EngSlot}" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Tac:" Style="{StaticResource Label}" />
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding TacReq}" Style="{StaticResource Input}" />
+                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding TacMod}" Style="{StaticResource Input}" />
+                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding TacSlot}" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Sci:" Style="{StaticResource Label}" />
+                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding SciReq}" Style="{StaticResource Input}" />
+                <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding SciMod}" Style="{StaticResource Input}" />
+                <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding SciSlot}" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Total:" Style="{StaticResource Label}" />
+                <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding TotalSlot}" Style="{StaticResource Display}" />
+                <Separator Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
+                <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Text="Bonus critical from event:"
                            Style="{StaticResource Label}" />
-                <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding EventCrit}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Text="Total critical rating:"
+                <TextBox Grid.Row="7" Grid.Column="2" Text="{Binding EventCrit}" Style="{StaticResource Input}" />
+                <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="Total critical rating:"
                            Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="7" Grid.Column="2" Text="{Binding TotalCrit}" Style="{StaticResource Display}" />
-                <Separator Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
-                <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="Maintenance off from event:"
+                <TextBlock Grid.Row="8" Grid.Column="2" Text="{Binding TotalCrit}" Style="{StaticResource Display}" />
+                <Separator Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
+                <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="Maintenance off from event:"
                            Style="{StaticResource Label}" />
-                <TextBox Grid.Row="8" Grid.Column="2" Text="{Binding EventMaintOff}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="Assignment duration:"
+                <TextBox Grid.Row="9" Grid.Column="2" Text="{Binding EventMaintOff}" Style="{StaticResource Input}" />
+                <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="Assignment duration:"
                            Style="{StaticResource Label}" />
-                <TextBox Grid.Row="9" Grid.Column="2" Text="{Binding Duration}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="Total Maintenance:"
+                <TextBox Grid.Row="10" Grid.Column="2" Text="{Binding Duration}" Style="{StaticResource Input}" />
+                <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Text="Total Maintenance:"
                            Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="10" Grid.Column="2" Text="{Binding TotalMaint}" Style="{StaticResource Display}" />
-                <Separator Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
-                <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Text="Success:"
+                <TextBlock Grid.Row="11" Grid.Column="2" Text="{Binding TotalMaint}" Style="{StaticResource Display}" />
+                <Separator Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
+                <TextBlock Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Text="Success:"
                            Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="11" Grid.Column="2" Text="{Binding SuccessChance}"
+                <TextBlock Grid.Row="12" Grid.Column="2" Text="{Binding SuccessChance}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Text="Critical:"
+                <TextBlock Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Text="Critical:"
                            Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="12" Grid.Column="2" Text="{Binding CritChance}" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[0]}"
+                <TextBlock Grid.Row="13" Grid.Column="2" Text="{Binding CritChance}" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[0]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="13" Grid.Column="3" Text="{Binding SelectedShipsMaint[0]}"
+                <TextBlock Grid.Row="14" Grid.Column="3" Text="{Binding SelectedShipsMaint[0]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[1]}"
+                <TextBlock Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[1]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="14" Grid.Column="3" Text="{Binding SelectedShipsMaint[1]}"
+                <TextBlock Grid.Row="15" Grid.Column="3" Text="{Binding SelectedShipsMaint[1]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[2]}"
+                <TextBlock Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[2]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="15" Grid.Column="3" Text="{Binding SelectedShipsMaint[2]}"
+                <TextBlock Grid.Row="16" Grid.Column="3" Text="{Binding SelectedShipsMaint[2]}"
                            Style="{StaticResource Display}" />
-                <Button Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="2" Content="Save Changes"
+                <Button Grid.Row="17" Grid.Column="0" Grid.ColumnSpan="2" Content="Save Changes"
                         Command="{Binding SaveChangeCmd}" />
-                <Button Grid.Row="16" Grid.Column="2" Content="Simulate" Command="{Binding SimulateCmd}" />
-                <Button Grid.Row="16" Grid.Column="3" Content="Execute" Command="{Binding ExecuteCmd}" />
+                <Button Grid.Row="17" Grid.Column="2" Content="Simulate" Command="{Binding SimulateCmd}" />
+                <Button Grid.Row="17" Grid.Column="3" Content="Execute" Command="{Binding ExecuteCmd}" />
             </Grid>
             <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" />
             <dxg:GridControl x:Name="ResultsGrid" Grid.Column="4" ItemsSource="{Binding Results}"

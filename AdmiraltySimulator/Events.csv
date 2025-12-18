@@ -1,0 +1,40 @@
+﻿Name,ENG,TAC,SCI,Crit,Maint,Reward,EC,Dilithium
+Diplomatic Tribute,,,,5,,Small Energy Credits Package,50000,
+Industrial Replicators Request,10,,,5,,Small Energy Credits Package,50000,
+Pirate Raiding Party,,10,,5,,Small Energy Credits Package,50000,
+Astrometric Data Exchange,,,10,5,,Small Energy Credits Package,50000,
+Grateful Freighter Captain,,,,5,,Medium Energy Credits Package,100000,
+Abandoned Treasure Trove,,,,10,,Large Energy Credits Package,200000,
+Refinement Surplus,,,,5,,Small Dilithium Ore Package,,500
+Intermix Chamber Salvage,10,,,5,,Small Dilithium Ore Package,,500
+Rogue Dilithium Asteroid,,10,,5,,Small Dilithium Ore Package,,500
+Dilithium Dust Synthesis,,,10,5,,Small Dilithium Ore Package,,500
+Lucky Vein,,,,5,,Medium Dilithium Ore Package,,1000
+Lucrative Mining Contract,,,,10,,Large Dilithium Ore Package,,2000
+Useful Materials,10,,10,5,,[Uncommon R&D Materials],,
+Reverse-Engineered Components,20,,20,10,,[Rare R&D Materials],,
+Stable Particle Fountain,40,,40,20,,[Very Rare R&D Materials],,
+Scavenger Party,25,25,25,20,,[Scavenged R&D Materials],,
+Level 5 Diagnostic,-10,,,,,,,
+Safe Trade Route,,-10,,,,,,
+Secondary Deflector Dish,,,-10,,,,,
+Miracle Worker,-20,,,,,,,
+Allied Patrol,,-20,,,,,,
+Scientific Intuition,,,-20,,,,,
+Power Fluctuations,10,,,10,,,,
+Pirates,,10,,10,,,,
+Unknown Readings,,,10,10,,,,
+Interference Nebula,30,,,30,,,,
+Enemy Patrol,,30,,30,,,,
+Subspace Anomalies,,,30,30,,,,
+Cascade System Failure,50,,,50,,,,
+Enemy Fleet,,50,,50,,,,
+Reality-Warping Flux,,,50,50,,,,
+Urgent Distress Call!,30,30,30,100,,,,
+Borg Transwarp Gateway!,50,50,50,100,,,,
+Warp Core Breach Imminent!,75,,,100,,,,
+Ambush!,,75,,100,,,,
+Wormhole!,,,75,100,-50%,,,
+We Don't Have The Power!,100,,,200,,,,
+Doomsday Machine!,,100,,200,,,,
+Temporal Vortex!,,,100,200,-100%,,,

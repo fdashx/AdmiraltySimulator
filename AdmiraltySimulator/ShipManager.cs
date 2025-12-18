@@ -93,7 +93,7 @@ namespace AdmiraltySimulator
                 if (!_ships.ContainsKey(NoShip))
                     _ships[NoShip] = new Ship(NoShip, ShipType.None, 0, 0, 0, new TimeSpan(0), new IAbility[0]);
 
-                _logger.WriteLine("Loaded ship database \"" + file + "\"");
+                _logger.WriteLine($"Loaded {_ships.Count} ships from \"{file}\"");
                 return true;
             }
             catch (Exception e)
@@ -166,7 +166,7 @@ namespace AdmiraltySimulator
 
                     var vals = line.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    if (vals.Length != 2 || !TryParseInvariant.Int(vals[0].Trim(), out var count))
+                    if (vals.Length != 2 || !ParseUtil.TryInt(vals[0], out var count))
                     {
                         _logger.WriteLine("Invalid one time use ship info: " + line);
                         continue;
@@ -210,9 +210,9 @@ namespace AdmiraltySimulator
             var timeSpanFmt = new[] { "h'h'm'm'", "h'h'", "m'm'" };
 
             if (!Enum.TryParse(vals[1].Trim(), true, out ShipType type)
-                || !TryParseInvariant.Int(vals[2].Trim(), out var engVal)
-                || !TryParseInvariant.Int(vals[3].Trim(), out var tacVal)
-                || !TryParseInvariant.Int(vals[4].Trim(), out var sciVal)
+                || !ParseUtil.TryInt(vals[2], out var engVal)
+                || !ParseUtil.TryInt(vals[3], out var tacVal)
+                || !ParseUtil.TryInt(vals[4], out var sciVal)
                 || !TimeSpan.TryParseExact(vals[5].Trim(), timeSpanFmt, CultureInfo.InvariantCulture,
                     out var maintenance))
             {
@@ -260,7 +260,7 @@ namespace AdmiraltySimulator
                 return false;
             }
 
-            if (!TryParseInvariant.Double(vals[0], out var value))
+            if (!ParseUtil.TryDouble(vals[0], out var value))
             {
                 return false;
             }

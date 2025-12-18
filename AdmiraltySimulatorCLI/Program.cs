@@ -12,7 +12,7 @@ namespace AdmiraltySimulatorCLI
         private static string _assignmentFile;
         private static double _minSuccess;
         private static int _numResults = 5;
-        private static string[] _orderBy = {"reward", "maint", "diff"};
+        private static string[] _orderBy = { "reward", "maint", "diff" };
 
         public static void Main(string[] args)
         {
@@ -88,7 +88,7 @@ namespace AdmiraltySimulatorCLI
                     SaveAndQuit(shipManager);
                 }
 
-                if (TryParseInvariant.Int(input, out var executeNum) && executeNum > 0 &&
+                if (ParseUtil.TryInt(input, out var executeNum) && executeNum > 0 &&
                     executeNum <= Math.Min(_numResults, results.Count))
                 {
                     simulator.ExecuteResult(results[executeNum - 1]);
@@ -163,7 +163,7 @@ namespace AdmiraltySimulatorCLI
                             _orderBy = args[++i].Split(',');
                             break;
                         case "-onetimeshipmaint":
-                            var timeSpanFmt = new[] {"h'h'm'm'", "h'h'", "m'm'"};
+                            var timeSpanFmt = new[] { "h'h'm'm'", "h'h'", "m'm'" };
                             Ship.OneTimeShipMaint =
                                 TimeSpan.ParseExact(args[++i], timeSpanFmt, CultureInfo.InvariantCulture);
                             break;
@@ -179,9 +179,10 @@ namespace AdmiraltySimulatorCLI
             return true;
         }
 
-        private static void PrintResults(Assignment assignment, IReadOnlyList<AssignmentResult> results)
+        private static void PrintResults(AssignmentInstance assignmentInstance, IReadOnlyList<AssignmentResult> results)
         {
-            var s = assignment.Name + ", Crit reward " + Math.Round(assignment.CritRewardMult, 2) + "x" + "\n";
+            var s = assignmentInstance.Assignment.Name + ", Crit reward " +
+                    Math.Round(assignmentInstance.CritRewardMult, 2) + "x" + "\n";
 
             for (var i = 0; i < results.Count; i++)
             {

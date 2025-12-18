@@ -1,0 +1,281 @@
+﻿Faction,Rarity,Name,ENG,TAC,SCI,CXP,XP,Dilithium,EC,Other,Duration,CriticalReward
+UFP,Epic,United Federation of Planets - Tour of Duty (1 of 10),10,10,10,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (2 of 10),20,20,20,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (3 of 10),30,30,30,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (4 of 10),40,40,40,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (5 of 10),50,50,50,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (6 of 10),60,60,60,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (7 of 10),70,70,70,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (8 of 10),80,80,80,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (9 of 10),90,90,90,2160,13500,,,,20 h,FALSE
+UFP,Epic,United Federation of Planets - Tour of Duty (10 of 10),100,100,100,2160,13500,,,2× CSP,20 h,FALSE
+UFP,Uncommon,Analyze Newly Discovered Phenomenon,45,45,105,714,4462,,,2× R&D,3 h 30 m,FALSE
+UFP,Very Rare,Attempt to Dampen Unknown Signal,90,90,160,684,16775,,,,3 h,FALSE
+UFP,Rare,Attempt to Disperse Dangerous Phenomenon,70,70,125,684,4275,,,3× R&D,3 h,FALSE
+UFP,Common,Break Pirate Blockade,20,45,20,450,2812,,20000,,1 h 30 m,FALSE
+UFP,Common,Calibrate Defense Perimeter,15,25,15,174,4837,,,,30 m,FALSE
+UFP,Very Rare,Capture Violent Escaped Criminal,95,160,95,714,4462,,,6× Prisoner,3 h 30 m,FALSE
+UFP,Common,Check Status of Isolated Colony,15,15,15,174,3587,,,,30 m,FALSE
+UFP,Rare,Check Status of Isolated Research Station,80,80,80,552,8450,,,,2 h,FALSE
+UFP,Rare,Clean Up Derelict Mine Field,125,80,80,720,14500,,,,4 h,FALSE
+UFP,Rare,Clear Stellar Debris for Starbase Construction,120,70,70,630,11437,,,,2 h 30 m,FALSE
+UFP,Uncommon,Conduct Salvage Operations,60,30,30,90,562,,,2× R&D,15 m,FALSE
+UFP,Very Rare,Dismantle Illegal Mine Field,190,95,95,720,4500,,50000,,4 h,TRUE
+UFP,Uncommon,Dispatch First Response Team to Medical Emergency,30,30,80,174,1087,,15000,,30 m,FALSE
+UFP,Very Rare,Disperse Hostile Blockade by Alien Intruders,85,145,85,450,2812,,50000,,1 h 30 m,TRUE
+UFP,Very Rare,Divert Attention of Hostile Spaceborne Entity,85,85,150,630,13312,,,,2 h 30 m,FALSE
+UFP,Common,Divert Comet from Inhabited Planet,55,20,20,630,8937,,,,2 h 30 m,FALSE
+UFP,Very Rare,Divert Rogue Planet from Inhabited System,175,90,90,720,17000,,,,4 h,FALSE
+UFP,Common,Escort Colonial Convoy through Federation Space,45,45,45,720,4500,,,3× Colonist,4 h,FALSE
+UFP,Rare,Escort Colonial Convoy through Uncharted Space,85,85,85,684,4275,,,4× Colonist,3 h,FALSE
+UFP,Rare,Escort High-Security Prisoner Transport,70,110,70,552,3450,,,4× Prisoner,2 h,FALSE
+UFP,Uncommon,Establish Trade Blockade on Un-Allied Planet,90,40,40,450,2812,,30000,,1 h 30 m,TRUE
+UFP,Very Rare,Evacuate Refugees from Attacked Colony,110,110,110,684,4275,,50000,,3 h,TRUE
+UFP,Uncommon,Evacuate Refugees from Failing Colony,70,70,70,720,4500,,30000,,4 h,TRUE
+UFP,Common,Ferry Starbase Crewmen to Shore Leave,25,25,25,324,5775,,,,1 h,FALSE
+UFP,Common,Investigate Federation Distress Signal,35,35,35,552,8450,,,,2 h,FALSE
+UFP,Common,Investigate Last Known Location of Lost Ship,20,20,45,324,2025,,,1×-Use Ship,1 h,FALSE
+UFP,Uncommon,Investigate Lost Ship of Diplomatic Ambassadors,40,40,95,552,3450,,,1×-Use Ship,2 h,FALSE
+UFP,Common,Investigate Stable Astronomical Phenomenon,20,20,55,450,2812,,,1× R&D,1 h 30 m,FALSE
+UFP,Rare,Investigate Unknown Distress Signal,85,85,85,714,14462,,,,3 h 30 m,FALSE
+UFP,Common,Map Interior of Unexplored Nebula,10,10,20,90,562,,,1× R&D,15 m,FALSE
+UFP,Uncommon,Map Unexplored Alien Territory,25,25,70,90,562,,,2× R&D,15 m,FALSE
+UFP,Rare,Map Unexplored Expansion Region,50,50,110,450,2812,,,3× R&D,1 h 30 m,FALSE
+UFP,Very Rare,Negotiate for Return of Salvage,130,80,80,174,1087,,,4× R&D,30 m,FALSE
+UFP,Very Rare,Observe Planetary Disaster in Progress,80,80,130,174,7337,,,,30 m,FALSE
+UFP,Common,Participate in Prototype Combat Drills,10,20,10,174,3587,,,,30 m,FALSE
+UFP,Rare,Patrol Borders,75,75,75,324,7025,,,,1 h,FALSE
+UFP,Common,Patrol Core Systems,10,10,10,90,3062,,,,15 m,FALSE
+UFP,Uncommon,Patrol Outlying Colonies,50,50,50,252,5325,,,,45 m,FALSE
+UFP,Very Rare,Patrol Unexplored Regions,100,100,100,252,7825,,,,45 m,FALSE
+UFP,Rare,Perform Diplomatic Parade,75,75,75,174,8587,,,,30 m,FALSE
+UFP,Rare,Provide Assistance to Damaged Alien Vessels,95,65,65,252,6575,,,,45 m,FALSE
+UFP,Very Rare,Provide Diplomatic Show of Force,80,130,80,90,6812,,,,15 m,FALSE
+UFP,Rare,Provide Opposition for Strike Team Drills,60,85,60,90,5562,,,,15 m,FALSE
+UFP,Very Rare,Provide Quarantine Enforcement Patrols,145,85,85,552,12825,,,,2 h,FALSE
+UFP,Rare,Provide Reinforcements for Deep Strike,65,100,65,324,9525,,,,1 h,FALSE
+UFP,Uncommon,Provide Reinforcements in Hostile Sector,30,60,30,90,4312,,,,15 m,FALSE
+UFP,Uncommon,Pursue Escaping Interplanetary Criminal,45,85,45,630,3937,,,4× Prisoner,2 h 30 m,FALSE
+UFP,Common,Reinforce Trade Blockade on Federation Planet,65,25,25,714,4462,,20000,,3 h 30 m,FALSE
+UFP,Common,Set Up Quarantine Warning Buoys,45,15,15,252,5325,,,,45 m,FALSE
+UFP,Uncommon,Supply Run to Distant Federation Colony,55,55,55,450,2812,,7500,,1 h 30 m,FALSE
+UFP,Very Rare,Supply Run to Remote Listening Post,100,100,100,324,2025,,12500,,1 h,FALSE
+UFP,Common,Support Response to Medical Emergency,15,15,35,252,1575,,5000,,45 m,FALSE
+UFP,Uncommon,Test Prototype Defense Perimeter,35,70,35,174,6712,,,,30 m,FALSE
+UFP,Common,Tow Damaged Federation Ships for Repairs,20,10,10,90,3062,,,,15 m,FALSE
+UFP,Uncommon,Track Movements of Spaceborne Entity,35,35,90,324,7650,,,,1 h,FALSE
+UFP,Uncommon,Transport Diplomatic Delegates,60,60,60,684,4275,,,1×-Use Ship,3 h,FALSE
+UFP,Very Rare,Transport Foreign Delegates,105,105,105,552,3450,,,1×-Use Ship,2 h,FALSE
+UFP,Uncommon,Transport Materials for Starbase Construction,80,35,35,252,7200,,,,45 m,FALSE
+UFP,Uncommon,Transport Political Prisoner into Custody,40,80,40,324,2025,,,3× Prisoner,1 h,FALSE
+UFP,Common,Uncover Source of Unknown Signal,25,25,60,684,9275,,,,3 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (1 of 10),10,10,10,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (2 of 10),20,20,20,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (3 of 10),30,30,30,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (4 of 10),40,40,40,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (5 of 10),50,50,50,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (6 of 10),60,60,60,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (7 of 10),70,70,70,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (8 of 10),80,80,80,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (9 of 10),90,90,90,2160,13500,,,,20 h,FALSE
+KE,Epic,Klingon Empire - Tour of Duty (10 of 10),100,100,100,2160,13500,40000,,,20 h,FALSE
+KE,Uncommon,Analyze Newly Discovered Phenomenon,45,45,105,714,4462,,,2× R&D,3 h 30 m,FALSE
+KE,Very Rare,Attempt to Dampen Unknown Signal,90,90,160,684,4275,500,,,3 h,TRUE
+KE,Rare,Attempt to Disperse Dangerous Phenomenon,70,70,125,684,4275,,,3× R&D,3 h,FALSE
+KE,Common,Calibrate Automated Perimeter Defenses,15,25,15,174,1087,100,,,30 m,TRUE
+KE,Very Rare,Capture Violent Escaped Criminal,95,160,95,714,4462,,,6× Prisoner,3 h 30 m,FALSE
+KE,Common,Check Status of Isolated Colony,15,15,15,174,1087,50,,,30 m,FALSE
+KE,Rare,Check Status of Isolated Forward Base,80,80,80,552,3450,100,,,2 h,TRUE
+KE,Very Rare,Coerce Diplomats with Show of Force,80,130,80,90,562,125,,,15 m,TRUE
+KE,Rare,Collect Tribute,75,75,75,174,1087,200,,,30 m,TRUE
+KE,Common,Defend Supply Lines for Medical Emergency,15,15,35,252,1575,,5000,,45 m,FALSE
+KE,Common,Demolish Pirate Blockade,20,45,20,450,2812,,20000,,1 h 30 m,FALSE
+KE,Very Rare,Destroy Aggressive Defense Installations,190,95,95,720,4500,,50000,,4 h,TRUE
+KE,Rare,Disintegrate Derelict Klingon Vessels,95,65,65,252,1575,100,,,45 m,TRUE
+KE,Rare,Dismantle Unnecessary Mine Nets,125,80,80,720,4500,,40000,,4 h,TRUE
+KE,Very Rare,Disperse Hostile Blockade by Alien Intruders,85,145,85,450,2812,,50000,,1 h 30 m,TRUE
+KE,Common,Divert Comet from Resource-Rich Planet,55,20,20,630,3937,200,,,2 h 30 m,TRUE
+KE,Very Rare,Divert Mining Asteroid into Stable Orbit,175,90,90,720,4500,500,,,4 h,TRUE
+KE,Very Rare,Drive Off or Destroy Spaceborne Entity,85,85,150,630,3937,250,,,2 h 30 m,TRUE
+KE,Very Rare,Ensure the Return of Salvaged Weaponry,130,80,80,174,1087,,,4× R&D,30 m,FALSE
+KE,Common,Escort Colonial Convoy through Klingon Space,45,45,45,720,4500,,,3× Colonist,4 h,FALSE
+KE,Rare,Escort Colonial Convoy through Uncharted Space,85,85,85,684,4275,,,4× Colonist,3 h,FALSE
+KE,Rare,Escort High-Security Prisoner Transport,70,110,70,552,3450,,,4× Prisoner,2 h,FALSE
+KE,Uncommon,Establish Blockade of Enemy Supply Line,90,40,40,450,2812,,30000,,1 h 30 m,TRUE
+KE,Common,Establish Blockade of Suspected Enemy Supply Lines,65,25,25,714,4462,,20000,,3 h 30 m,FALSE
+KE,Rare,Establish Defensive Perimeter at Repair Facility,120,70,70,630,3937,200,,,2 h 30 m,TRUE
+KE,Very Rare,Evacuate Refugees from Attacked Colony,110,110,110,684,4275,,50000,,3 h,TRUE
+KE,Uncommon,Evacuate Refugees from Failing Colony,70,70,70,720,4500,,30000,,4 h,TRUE
+KE,Rare,Gather Sensor Readings on Unexplored Expansion Region,50,50,110,450,2812,,,3× R&D,1 h 30 m,FALSE
+KE,Common,Investigate Klingon Distress Signal,35,35,35,552,3450,200,,,2 h,TRUE
+KE,Common,Investigate Last Known Location of Lost Warriors,20,20,45,324,2025,,,1×-Use Ship,1 h,FALSE
+KE,Uncommon,Investigate Mysterious Loss of High Council Delegate,40,40,95,552,3450,,,1×-Use Ship,2 h,FALSE
+KE,Common,Investigate Stable Astronomical Phenomenon,20,20,55,450,2812,,,1× R&D,1 h 30 m,FALSE
+KE,Rare,Investigate Unknown Distress Signal,85,85,85,714,4462,400,,,3 h 30 m,TRUE
+KE,Very Rare,Join Envoy Escorting Foreign Troops through Empire Territory,105,105,105,552,3450,,,1×-Use Ship,2 h,FALSE
+KE,Very Rare,Observe Devastating Weapon Test,80,80,130,174,1087,125,,,30 m,TRUE
+KE,Common,Obtain Updated Sensor Readings on Nearby Nebula,10,10,20,90,562,,,1× R&D,15 m,FALSE
+KE,Uncommon,Orbital Cleanse of Medical Emergency Site,30,30,80,174,2175,,15000,,30 m,FALSE
+KE,Common,Participate in Prototype Combat Drills,10,20,10,174,1087,50,,,30 m,FALSE
+KE,Uncommon,Participate in Salvage Operations,60,30,30,90,562,,,2× R&D,15 m,FALSE
+KE,Common,Patrol Core Territory,10,10,10,90,562,50,,,15 m,FALSE
+KE,Uncommon,Patrol Distant Colonies and Vassals,50,50,50,252,1575,75,,,45 m,FALSE
+KE,Rare,Patrol Edges of Claimed Space,75,75,75,324,2025,100,,,1 h,TRUE
+KE,Very Rare,Patrol Unexplored Space,100,100,100,252,1575,125,,,45 m,TRUE
+KE,Common,Provide Honor Escort for Warriors on Leave,25,25,25,324,2025,100,,,1 h,TRUE
+KE,Rare,Provide Opposition for Cloaking Detection Drills,60,85,60,90,562,100,,,15 m,TRUE
+KE,Very Rare,Provide Quarantine Enforcement Patrols,145,85,85,552,3450,250,,,2 h,TRUE
+KE,Rare,Provide Reinforcements for Deep Strike,65,100,65,324,2025,200,,,1 h,TRUE
+KE,Uncommon,Provide Reinforcements in Hostile Sector,30,60,30,90,562,75,,,15 m,FALSE
+KE,Uncommon,Pursue Escaping Interplanetary Criminal,45,85,45,630,3937,,,4× Prisoner,2 h 30 m,FALSE
+KE,Uncommon,Reinforce Envoy of Decorated General on Diplomatic Mission,60,60,60,684,4275,,,1×-Use Ship,3 h,FALSE
+KE,Common,Set Up Orbital Transport Inhibitors at Quarantine Site,45,15,15,252,1575,100,,,45 m,TRUE
+KE,Uncommon,Supply Run to Distant Klingon Outpost,55,55,55,450,2812,,7500,,1 h 30 m,FALSE
+KE,Very Rare,Supply Run to Raiding Outpost,100,100,100,324,2025,,12500,,1 h,FALSE
+KE,Uncommon,Test Prototype Automated Defenses,35,70,35,174,1087,150,,,30 m,TRUE
+KE,Common,Tow Damaged Klingon Ships for Repairs,20,10,10,90,562,50,,,15 m,FALSE
+KE,Uncommon,Track Movements and Capabilities of Spaceborne Entity,35,35,90,324,2025,150,,,1 h,TRUE
+KE,Uncommon,Transport Prisoners to Workforce Placement,40,80,40,324,2025,,,3× Prisoner,1 h,FALSE
+KE,Uncommon,Transport Raw Materials to Repair Facility Site,80,35,35,252,1575,150,,,45 m,TRUE
+KE,Common,Uncover Source of Unknown Signal,25,25,60,684,4275,200,,,3 h,TRUE
+KE,Uncommon,Verify Sensor Readings from Remote Listening Post,25,25,70,90,562,,,2× R&D,15 m,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (1 of 10),10,10,10,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (2 of 10),20,20,20,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (3 of 10),30,30,30,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (4 of 10),40,40,40,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (5 of 10),50,50,50,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (6 of 10),60,60,60,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (7 of 10),70,70,70,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (8 of 10),80,80,80,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (9 of 10),90,90,90,2160,13500,,,,20 h,FALSE
+RR,Epic,Romulan Republic - Tour of Duty (10 of 10),100,100,100,2160,13500,,,4× Tech Upg,20 h,FALSE
+RR,Uncommon,Analyze Newly Discovered Phenomenon,45,45,105,714,8212,150,,,3 h 30 m,TRUE
+RR,Rare,Assist Warbird Damaged by Pirates,95,65,65,252,1575,,,3× R&D,45 m,FALSE
+RR,Rare,Attempt to Disperse Dangerous Phenomenon,70,70,125,684,9275,200,,,3 h,TRUE
+RR,Common,Calibrate Automated Perimeter Defenses,15,25,15,174,1087,,,1× R&D,30 m,FALSE
+RR,Very Rare,Capture Escaped Tal Shiar Agent,95,160,95,714,4462,,,6× Prisoner,3 h 30 m,FALSE
+RR,Common,Check Status of Isolated Colony,15,15,15,174,1087,,,1× R&D,30 m,FALSE
+RR,Rare,Check Status of Isolated Surveillance Station,80,80,80,552,3450,,,3× R&D,2 h,FALSE
+RR,Common,Defend Supply Lines for Medical Station,15,15,35,252,1575,,5000,,45 m,FALSE
+RR,Common,Deliver Sensor Readings to Research Post,10,10,20,90,1812,25,,,15 m,FALSE
+RR,Very Rare,Destroy Imperial Romulan Mine Field,190,95,95,720,4500,,50000,,4 h,TRUE
+RR,Rare,Dismantle Mines Surrounding Neutral World,125,80,80,720,4500,,40000,,4 h,TRUE
+RR,Common,Divert Comet from Republic Planet,55,20,20,630,3937,,,1× R&D,2 h 30 m,FALSE
+RR,Very Rare,Divert Mining Asteroid into Stable Orbit,175,90,90,720,4500,,,4× R&D,4 h,FALSE
+RR,Rare,Escort Captured Operative to Prisoner Exchange,70,110,70,552,3450,,,4× Prisoner,2 h,FALSE
+RR,Rare,Escort Colonial Convoy through Pirate Territory,85,85,85,684,4275,,,4× Colonist,3 h,FALSE
+RR,Common,Escort Colonial Convoy through Republic Space,45,45,45,720,4500,,,3× Colonist,4 h,FALSE
+RR,Uncommon,Escort Prisoner Convoy to New Facility,40,80,40,324,2025,,,3× Prisoner,1 h,FALSE
+RR,Uncommon,Establish Blockade of Pirate Territory,90,40,40,450,2812,,30000,,1 h 30 m,TRUE
+RR,Common,Establish Blockade of Suspected Star Empire Supporters,65,25,25,714,4462,,20000,,3 h 30 m,FALSE
+RR,Rare,Establish Defensive Perimeter at Repair Facility,120,70,70,630,3937,,,3× R&D,2 h 30 m,FALSE
+RR,Very Rare,Evacuate Refugees from Destroyed Colony,110,110,110,684,4275,,50000,,3 h,TRUE
+RR,Uncommon,Evacuate Refugees from Failing Colony,70,70,70,720,4500,,30000,,4 h,TRUE
+RR,Rare,Expose agents of Empress Sela,75,75,75,174,1087,,,3× R&D,30 m,FALSE
+RR,Very Rare,Field Test New Singularity Drive,80,80,130,174,1087,,,4× R&D,30 m,FALSE
+RR,Rare,Gather Sensor Readings on Unexplored Colonial Region,50,50,110,450,5312,50,,,1 h 30 m,FALSE
+RR,Very Rare,Host a Reunification Summit,105,105,105,552,3450,,,1×-Use Ship,2 h,FALSE
+RR,Uncommon,Investigate Disappearances of Diplomatic Vessel,40,40,95,552,3450,,,1×-Use Ship,2 h,FALSE
+RR,Uncommon,Investigate Encoded Sensor Readings,25,25,70,90,2437,37,,,15 m,FALSE
+RR,Common,Investigate Potential Location of Lost Archive,20,20,45,324,2025,,,1×-Use Ship,1 h,FALSE
+RR,Common,Investigate Republic Distress Signal,35,35,35,552,3450,,,1× R&D,2 h,FALSE
+RR,Common,Investigate Stable Astronomical Phenomenon,20,20,55,450,5312,100,,,1 h 30 m,TRUE
+RR,Rare,Investigate Unknown Distress Signal,85,85,85,714,4462,,,3× R&D,3 h 30 m,FALSE
+RR,Common,Participate in Prototype Combat Drills,10,20,10,174,1087,,,1× R&D,30 m,FALSE
+RR,Common,Participate in Salvage Operations,60,30,30,90,3687,62,,,15 m,FALSE
+RR,Common,Patrol New Romulus System,10,10,10,90,562,,,1× R&D,15 m,FALSE
+RR,Very Rare,Patrol Newly Established Colonies,100,100,100,252,1575,,,4× R&D,45 m,FALSE
+RR,Uncommon,Patrol Republic Border,50,50,50,252,1575,,,2× R&D,45 m,FALSE
+RR,Rare,Patrol Republic Space,75,75,75,324,2025,,,3× R&D,1 h,FALSE
+RR,Very Rare,Protect Allied Diplomats Marked for Assassination,85,145,85,450,2812,,50000,,1 h 30 m,TRUE
+RR,Common,Protect Republic Officials Marked for Assassination,20,45,20,450,2812,,20000,,1 h 30 m,FALSE
+RR,Uncommon,Provide Additional Security for Reunification Summit,60,60,60,684,4275,,,1×-Use Ship,3 h,FALSE
+RR,Uncommon,Provide Medical Assistance to Colony,30,30,80,174,1087,,15000,,30 m,FALSE
+RR,Rare,Provide Opposition for Counter-Cloaking Drills,60,85,60,90,562,,,3× R&D,15 m,FALSE
+RR,Rare,Provide Reinforcements for Counter-offensive,65,100,65,324,2025,,,3× R&D,1 h,FALSE
+RR,Uncommon,Provide Reinforcements to Combat Zone,30,60,30,90,562,,,2× R&D,15 m,FALSE
+RR,Uncommon,Pursue Escaping Tal Shiar Agent,45,85,45,630,3937,,,4× R&D,2 h 30 m,FALSE
+RR,Very Rare,Quarantine Colony After Biological Attack,145,85,85,552,3450,,,4× R&D,2 h,FALSE
+RR,Common,Recover Stolen Cloaking Schematics,25,25,25,324,2025,,,1× R&D,1 h,FALSE
+RR,Very Rare,Relocate Settlers Away from Spaceborne Entity,85,85,150,630,3937,,,4× R&D,2 h 30 m,FALSE
+RR,Uncommon,Repair Colony Automated Defense System,35,70,35,174,1087,,,2× R&D,30 m,FALSE
+RR,Very Rare,Salvage Abandoned Tal Shiar Research Station,130,80,80,174,4212,62,,,30 m,FALSE
+RR,Common,Set Up Orbital Transport Inhibitor at Quarantine Site,45,15,15,252,1575,,,1× R&D,45 m,FALSE
+RR,Uncommon,Study Movements of Spaceborne Entity,35,35,90,324,2025,,,2× R&D,1 h,FALSE
+RR,Very Rare,Supply Run to Reman Settlement,100,100,100,324,2025,,15000,,1 h,FALSE
+RR,Uncommon,Supply Run to Romulan Colony,55,55,55,450,2812,,7500,,1 h 30 m,FALSE
+RR,Very Rare,Suppress Star Empire Propaganda,80,130,80,90,562,,,4× R&D,15 m,FALSE
+RR,Common,Tow Damaged Republic Ships for Repair,20,10,10,90,562,,,1× R&D,15 m,FALSE
+RR,Common,Track Reman Separatist Movements,25,25,60,684,4275,,,1× R&D,3 h,FALSE
+RR,Very Rare,Track Tal Shiar Movements,90,90,160,684,4275,,,4× R&D,3 h,FALSE
+RR,Uncommon,Transport Raw Materials to Repair Facility Site,80,35,35,252,1575,,,2× R&D,45 m,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (1 of 10),10,10,10,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (2 of 10),20,20,20,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (3 of 10),30,30,30,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (4 of 10),40,40,40,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (5 of 10),50,50,50,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (6 of 10),60,60,60,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (7 of 10),70,70,70,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (8 of 10),80,80,80,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (9 of 10),90,90,90,2160,13500,,,,20 h,FALSE
+FA,Epic,Ferengi Alliance - Tour of Duty (10 of 10),90,90,90,2160,13500,30000,,,20 h,FALSE
+FA,Uncommon,Analyze Newly Discovered Phenomenon,45,45,105,714,4462,,,2× R&D,3 h 30 m,FALSE
+FA,Very Rare,Attempt to Dampen Unknown Signal,90,90,160,684,4275,500,,,3 h,TRUE
+FA,Rare,Attempt to Disperse Dangerous Phenomenon,70,70,125,684,4275,,,3× R&D,3 h,FALSE
+FA,Common,Calibrate Automated Perimeter Defenses,15,25,15,174,1087,100,,,30 m,TRUE
+FA,Very Rare,Capture Violent Escaped Criminal,95,160,95,714,4462,,,6× Prisoner,3 h 30 m,FALSE
+FA,Rare,Collect Rare Resources at Diplomatic Exchange,75,75,75,174,1087,200,,,30 m,TRUE
+FA,Very Rare,Conduct Shipping Regulation Enforcement Patrols,145,85,85,552,3450,250,,,2 h,TRUE
+FA,Common,Defend Supply Lines for Medical Emergency,15,15,35,252,1575,,4000,1700 GPL,45 m,FALSE
+FA,Common,Demolish Illegal Blockade,20,45,20,450,2812,,18000,3000 GPL,1 h 30 m,FALSE
+FA,Very Rare,Destroy Aggressive Defense Installations,190,95,95,720,4500,,40000,15000 GPL,4 h,TRUE
+FA,Very Rare,Discourage Syndicate Raids in Ferengi Space,80,130,80,90,562,125,,,15 m,TRUE
+FA,Very Rare,Disperse Hostile Blockade by Alien Intruders,85,145,85,450,2812,,40000,15000 GPL,1 h 30 m,TRUE
+FA,Common,Divert Comet Approaching Trade-Partner's Planet,55,20,20,630,3937,200,,,2h 30 m,TRUE
+FA,Very Rare,Drive Off or Destroy Spaceborne Entity,85,85,150,630,3937,250,,,2h 30 m,TRUE
+FA,Very Rare,Ensure the Return of Stolen Resources,130,80,80,174,1087,,,4× R&D,30 m,FALSE
+FA,Common,Escort Colonial Convoy through Ferengi Trade Alliance Space,45,45,45,720,4500,,,3× Colonist,4 h,FALSE
+FA,Rare,Escort Colonial Convoy through Uncharted Space,85,85,85,684,4275,,,4× Colonist,3 h,FALSE
+FA,Very Rare,Escort Diplomatic Envoy Through Trade Alliance Space,105,105,105,552,3450,,,1×-Use Ship,2 h,FALSE
+FA,Common,Escort Ferengi Trade Ships for Repairs,20,10,10,90,562,50,,,15 m,FALSE
+FA,Rare,Escort High-Security Prisoner Transport,70,110,70,552,3450,,,4× Prisoner,2 h,FALSE
+FA,Common,Establish Blockade of Suspected Black-Market Supply Lines,65,25,25,714,4462,,18000,3000 GPL,3 h 30 m,FALSE
+FA,Uncommon,Establish Blockade of Syndicate Supply Line,90,40,40,450,2812,,24000,9000 GPL,1 h 30 m,FALSE
+FA,Rare,Establish Defensive Perimeter at Salvage Facility,120,70,70,630,3937,200,,,2 h 30 m,TRUE
+FA,Very Rare,Evacuate Refugees From Collapsing Ferengi Colony,110,110,110,684,4275,,40000,15000 GPL,3 h,TRUE
+FA,Rare,Gather Sensor Readings on Unexplored Expansion Region,50,50,110,450,2812,,,3× R&D,1 h 30 m,FALSE
+FA,Common,Inspect Planetary Transporter Grids,45,15,15,252,1575,100,,,45 m,TRUE
+FA,Common,Investigate Ferengi Distress Signal,35,35,35,552,3450,200,,,2 h,TRUE
+FA,Common,Investigate Last Known Location of Lost Traders,20,20,45,324,2025,,,1×-Use Ship,1 h,FALSE
+FA,Uncommon,Investigate Mysterious Loss of Commerce Authority Delegate,40,40,95,552,3450,,,1×-Use Ship,2 h,FALSE
+FA,Common,Investigate Stable Astronomical Phenomenon,20,20,55,450,2812,,,1× R&D,1 h 30 m,FALSE
+FA,Rare,Investigate Unknown Distress Signal,85,85,85,714,4462,400,,,3 h 30 m,TRUE
+FA,Very Rare,Knock Asteroid into Stable Orbit,175,90,90,720,4500,500,,,4 h,TRUE
+FA,Very Rare,Observe Devastating Weapon Test,80,80,130,174,1087,125,,,30 m,TRUE
+FA,Common,Obtain Sensor Readings From Nebula,10,10,20,90,562,,,1× R&D,15 m,FALSE
+FA,Uncommon,Orbital Cleanse of Medical Emergency Site,30,30,80,174,1087,,12000,4500 GPL,30 m,FALSE
+FA,Common,Participate in Prototype Combat Drills,10,20,10,174,1087,50,,,30 m,FALSE
+FA,Uncommon,Participate in Salvage Operations,60,30,30,90,562,,,2× R&D,15 m,FALSE
+FA,Common,Patrol Core Territory,10,10,10,90,562,50,,,15 m,FALSE
+FA,Uncommon,Patrol Distant Colonies,50,50,50,252,1575,75,,,45 m,FALSE
+FA,Rare,Patrol Edges of Claimed Space,75,75,75,324,2025,100,,,1 h,TRUE
+FA,Very Rare,Patrol Unexplored Space,100,100,100,252,1575,125,,,45 m,TRUE
+FA,Common,Provide Escort for Vacationing Ferengi Merchants,25,25,25,324,2025,100,,,1 h,TRUE
+FA,Rare,Provide Opposition for Cloaking Detection Drills,60,85,60,90,562,100,,,15 m,TRUE
+FA,Uncommon,Provide Reinforcements in Hostile Sector,30,60,30,90,562,75,,,15 m,FALSE
+FA,Rare,Provide Reinforcements to Secure New Colony,65,100,65,324,2025,200,,,1 h,TRUE
+FA,Uncommon,Pursue Escaping Interplanetary Criminal,45,85,45,630,3937,,,4× Prisoner,2 h 30 m,FALSE
+FA,Uncommon,Reinforce Envoy of Prominent Trader on Diplomatic Mission,60,60,60,684,4275,,,1×-Use Ship,3 h,FALSE
+FA,Rare,Salvage Derelict Ferengi Vessels,95,65,65,252,1575,100,,,45 m,TRUE
+FA,Rare,Salvage Unnecessary Mine Nets,125,80,80,720,4500,,32000,12000 GPL,4 h,TRUE
+FA,Common,Supply Isolated Colony,15,15,15,174,1087,50,,,30 m,FALSE
+FA,Rare,Supply Isolated Forward Base,80,80,80,552,3450,100,,,2 h,TRUE
+FA,Uncommon,Supply Run to Distant Ferengi Outpost,55,55,55,450,2812,,6000,2250 GPL,1 h 30 m,FALSE
+FA,Very Rare,Supply Run to Resource Depot,100,100,100,324,2025,,10000,3750 GPL,1 h,FALSE
+FA,Uncommon,Test Prototype Automated Defenses,35,70,35,174,1087,150,,,30 m,TRUE
+FA,Uncommon,Track Movements and Capabilities of Spaceborne Entity,35,35,90,324,2025,150,,,1 h,TRUE
+FA,Uncommon,Transport Prisoners to Workforce Placement,40,80,40,324,2025,,,3× Prisoner,1 h,FALSE
+FA,Uncommon,Transport Raw Materials to Salvage Facility Site,80,35,35,252,1575,150,,,45 m,TRUE
+FA,Uncommon,Transport Refugees From Failing Ferengi Colony,70,70,70,720,4500,,24000,9000 GPL,4 h,FALSE
+FA,Common,Uncover Source of Unknown Signal,25,25,60,684,4275,200,,,3 h,TRUE
+FA,Uncommon,Verify Sensor Readings from Remote Listening Post,25,25,70,90,562,,,2× R&D,15 m,FALSE

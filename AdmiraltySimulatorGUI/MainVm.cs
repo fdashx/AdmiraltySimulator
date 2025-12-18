@@ -10,8 +10,11 @@ namespace AdmiraltySimulatorGUI
     {
         private const string DefaultShipsFilePath = "ships.csv";
         private const string DefaultProfilesDirectory = "profiles";
+        private const string DefaultAssignmentsFilePath = "assignments.csv";
+        private const string DefaultEventsFilePath = "events.csv";
         private const string FileSuffixOwned = "_owned.txt";
         private const string FileSuffixOneTime = "_onetime.txt";
+        private const string FmtDuration = "h'h'm'm'";
         private readonly IFileDialogService _fileDialogService;
         private string _critChance;
         private string _critRewardMult;
@@ -42,12 +45,18 @@ namespace AdmiraltySimulatorGUI
         private string _totalSlot;
         private Profile _selectedProfile;
         private string _newProfileName;
+        private List<Assignment> _assignments;
+        private List<Event> _events;
+        private Assignment _selectedAssignment;
+        private Event _selectedEvent;
 
-        public MainVm(ILogger logger,
+        public MainVm(
+            ILogger logger,
             IFileDialogService fileDialogService,
             ShipManager shipManager,
             AssignmentParser assignmentParser,
-            AssignmentSimulator simulator)
+            AssignmentSimulator simulator
+        )
         {
             Logger = logger;
             _fileDialogService = fileDialogService;
@@ -65,6 +74,7 @@ namespace AdmiraltySimulatorGUI
             ResetAssignment();
             LoadShipsFile(DefaultShipsFilePath);
             LoadAvailableProfiles();
+            LoadAssignmentsAndEvents();
         }
 
         public ILogger Logger { get; }
@@ -255,6 +265,38 @@ namespace AdmiraltySimulatorGUI
         {
             get => _selectedShipsMaint;
             private set => SetProperty(ref _selectedShipsMaint, value, nameof(SelectedShipsMaint));
+        }
+
+        public List<Assignment> Assignments
+        {
+            get => _assignments;
+            set => SetProperty(ref _assignments, value, nameof(Assignments));
+        }
+
+        public Assignment SelectedAssignment
+        {
+            get => _selectedAssignment;
+            set
+            {
+                SetProperty(ref _selectedAssignment, value, nameof(SelectedAssignment));
+                PopulateAssignmentInfo(SelectedAssignment);
+            }
+        }
+
+        public List<Event> Events
+        {
+            get => _events;
+            set => SetProperty(ref _events, value, nameof(Events));
+        }
+
+        public Event SelectedEvent
+        {
+            get => _selectedEvent;
+            set
+            {
+                SetProperty(ref _selectedEvent, value, nameof(SelectedEvent));
+                PopulateEventInfo(SelectedEvent);
+            }
         }
 
         public void SaveGrid(string file)
@@ -451,7 +493,7 @@ namespace AdmiraltySimulatorGUI
             for (var i = 0; i < r.Ships.Count; i++)
             {
                 var ship = r.Ships[i];
-                var maint = r.ShipsMaint[i].ToString("h'h'm'm'");
+                var maint = r.ShipsMaint[i].ToString(FmtDuration);
 
                 if (ship.Type == ShipType.None)
                     maint = "";
@@ -471,6 +513,30 @@ namespace AdmiraltySimulatorGUI
             SciMod = "0";
             EventCrit = "0";
             EventMaintOff = "0";
+        }
+
+        private void LoadAssignmentsAndEvents()
+        {
+            Assignments = AssignmentParser.LoadAssignmentsFromFile(DefaultAssignmentsFilePath);
+            Events = AssignmentParser.LoadEventsFromFile(DefaultEventsFilePath);
+        }
+
+        private void PopulateAssignmentInfo(Assignment assignment)
+        {
+            CritRewardMult = assignment.HasCriticalReward ? "1.5" : "1";
+            EngReq = assignment.ReqEng.ToString();
+            TacReq = assignment.ReqTac.ToString();
+            SciReq = assignment.ReqSci.ToString();
+            Duration = assignment.Duration.ToString(FmtDuration);
+        }
+
+        private void PopulateEventInfo(Event selectedEvent)
+        {
+            EngMod = selectedEvent.ModEng.ToString();
+            TacMod = selectedEvent.ModTac.ToString();
+            SciMod = selectedEvent.ModSci.ToString();
+            EventCrit = selectedEvent.ModCrit.ToString();
+            EventMaintOff = selectedEvent.MaintOff.ToString();
         }
     }
 }
