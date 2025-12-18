@@ -462,13 +462,17 @@ namespace AdmiraltySimulatorGUI
             if (SelectedResult != null)
             {
                 Simulator.ExecuteResult(SelectedResult.Result);
-                Logger.WriteLine("Executed assignment using result:\n" + SelectedResult.Result);
+                var assignmentName = SelectedAssignment?.Name ?? "custom assignment";
+                var eventName = SelectedEvent != null ? $" with \"{SelectedEvent.Name}\"" : string.Empty;
+                Logger.WriteLine($"Executed \"{assignmentName}\"{eventName} using result:\n" + SelectedResult.Result);
             }
 
             SelectedResult = null;
             RefreshShips();
             ResetAssignment();
             Results = new List<ResultVm>();
+            SelectedAssignment = null;
+            SelectedEvent = null;
         }
 
         private void DisplayResult(ResultVm result)
@@ -530,6 +534,11 @@ namespace AdmiraltySimulatorGUI
 
         private void PopulateAssignmentInfo(Assignment assignment)
         {
+            if (assignment == null)
+            {
+                return;
+            }
+            
             CritRewardMult = assignment.HasCriticalReward ? "1.5" : "1"; // EC and Dil are 50% more when critical
             EngReq = assignment.ReqEng.ToString();
             TacReq = assignment.ReqTac.ToString();
@@ -540,6 +549,11 @@ namespace AdmiraltySimulatorGUI
 
         private void PopulateEventInfo(Event selectedEvent)
         {
+            if (selectedEvent == null)
+            {
+                return;
+            }
+            
             EngMod = selectedEvent.ModEng.ToString();
             TacMod = selectedEvent.ModTac.ToString();
             SciMod = selectedEvent.ModSci.ToString();
