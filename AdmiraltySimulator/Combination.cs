@@ -4,17 +4,15 @@ namespace AdmiraltySimulator
 {
     public static class Combination
     {
-        public static List<List<T>> Combinations<T>(this List<T> elements, int k)
+        public static IEnumerable<List<T>> Combinations<T>(this ICollection<T> elements, int k)
         {
-            var combs = new List<List<T>>();
-
             if (k < 0 || k > elements.Count)
-                return combs;
+                yield break;
 
             if (elements.Count == 0)
             {
-                combs.Add(new List<T>());
-                return combs;
+                yield return new List<T>();
+                yield break;
             }
 
             var reverseMode = k > elements.Count - elements.Count / 2;
@@ -24,6 +22,8 @@ namespace AdmiraltySimulator
 
             for (var i = 0; i < (reverseMode ? reverseK : k); i++)
                 indexes.Add(i);
+
+            var elementsList = new List<T>(elements);
 
             do
             {
@@ -35,20 +35,18 @@ namespace AdmiraltySimulator
 
                     for (var i = 0; i < elements.Count; i++)
                         if (currExceptIdx >= indexes.Count || i != indexes[currExceptIdx])
-                            comb.Add(elements[i]);
+                            comb.Add(elementsList[i]);
                         else
                             currExceptIdx++;
                 }
                 else
                 {
                     foreach (var idx in indexes)
-                        comb.Add(elements[idx]);
+                        comb.Add(elementsList[idx]);
                 }
 
-                combs.Add(comb);
+                yield return comb;
             } while (NextCombIdx(indexes, elements.Count, (reverseMode ? reverseK : k) - 1));
-
-            return combs;
         }
 
         private static bool NextCombIdx(IList<int> indexes, int elementCount, int currIdx)

@@ -127,6 +127,7 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50" />
@@ -226,33 +227,37 @@
                 <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="Assignment duration:"
                            Style="{StaticResource Label}" />
                 <TextBox Grid.Row="10" Grid.Column="2" Text="{Binding Duration}" Style="{StaticResource Input}" />
-                <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Text="Total Maintenance:"
+                <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Text="Use One Time Ships:"
                            Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="11" Grid.Column="2" Text="{Binding TotalMaint}" Style="{StaticResource Display}" />
-                <Separator Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
-                <TextBlock Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Text="Success:"
+                <CheckBox Grid.Row="11" Grid.Column="2" IsChecked="{Binding UseOneTimeShips}"
+                          VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Text="Total Maintenance:"
                            Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="12" Grid.Column="2" Text="{Binding SuccessChance}"
-                           Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Text="Critical:"
+                <TextBlock Grid.Row="12" Grid.Column="2" Text="{Binding TotalMaint}" Style="{StaticResource Display}" />
+                <Separator Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" />
+                <TextBlock Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Text="Success:"
                            Style="{StaticResource Label}" />
-                <TextBlock Grid.Row="13" Grid.Column="2" Text="{Binding CritChance}" Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[0]}"
+                <TextBlock Grid.Row="13" Grid.Column="2" Text="{Binding SuccessChance}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="14" Grid.Column="3" Text="{Binding SelectedShipsMaint[0]}"
+                <TextBlock Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" Text="Critical:"
+                           Style="{StaticResource Label}" />
+                <TextBlock Grid.Row="14" Grid.Column="2" Text="{Binding CritChance}" Style="{StaticResource Display}" />
+                <TextBlock Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[0]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[1]}"
+                <TextBlock Grid.Row="15" Grid.Column="3" Text="{Binding SelectedShipsMaint[0]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="15" Grid.Column="3" Text="{Binding SelectedShipsMaint[1]}"
+                <TextBlock Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[1]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[2]}"
+                <TextBlock Grid.Row="16" Grid.Column="3" Text="{Binding SelectedShipsMaint[1]}"
                            Style="{StaticResource Display}" />
-                <TextBlock Grid.Row="16" Grid.Column="3" Text="{Binding SelectedShipsMaint[2]}"
+                <TextBlock Grid.Row="17" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding SelectedShips[2]}"
                            Style="{StaticResource Display}" />
-                <Button Grid.Row="17" Grid.Column="0" Grid.ColumnSpan="2" Content="Save Changes"
+                <TextBlock Grid.Row="17" Grid.Column="3" Text="{Binding SelectedShipsMaint[2]}"
+                           Style="{StaticResource Display}" />
+                <Button Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="2" Content="Save Changes"
                         Command="{Binding SaveChangeCmd}" />
-                <Button Grid.Row="17" Grid.Column="2" Content="Simulate" Command="{Binding SimulateCmd}" />
-                <Button Grid.Row="17" Grid.Column="3" Content="Execute" Command="{Binding ExecuteCmd}" />
+                <Button Grid.Row="18" Grid.Column="2" Content="Simulate" Command="{Binding SimulateCmd}" />
+                <Button Grid.Row="18" Grid.Column="3" Content="Execute" Command="{Binding ExecuteCmd}" />
             </Grid>
             <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" />
             <dxg:GridControl x:Name="ResultsGrid" Grid.Column="4" ItemsSource="{Binding Results}"

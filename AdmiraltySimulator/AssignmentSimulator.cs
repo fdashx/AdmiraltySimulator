@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace AdmiraltySimulator
 {
@@ -10,7 +11,7 @@ namespace AdmiraltySimulator
         private readonly double _minSuccess;
         private readonly ShipManager _shipManager;
         private bool _calcCombination;
-        private List<List<int>> _shipCombinations;
+        private List<List<Ship>> _shipCombinations;
         private List<Ship> _ships;
 
         public AssignmentSimulator(ILogger logger, ShipManager shipManager, double minSuccess = 0)
@@ -21,31 +22,25 @@ namespace AdmiraltySimulator
             _minSuccess = minSuccess;
         }
 
-        public List<AssignmentResult> GetResults(AssignmentInstance assignmentInstance, bool recalcCombination = false)
+        public List<AssignmentResult> GetResults(
+            AssignmentInstance assignmentInstance,
+            bool recalcCombination = false,
+            bool useOneTimeShips = true
+        )
         {
             var sw = Stopwatch.StartNew();
 
             if (_calcCombination || recalcCombination)
             {
-                var indexes = new List<int>();
-                _ships = _shipManager.GetAvailableShips();
-
-                for (var i = 0; i < _ships.Count; i++)
-                    indexes.Add(i);
-
-                _shipCombinations = indexes.Combinations(3);
+                _ships = _shipManager.GetAvailableShips(useOneTimeShips);
+                _shipCombinations = _ships.Combinations(3).ToList();
                 _calcCombination = false;
             }
 
             var results = new List<AssignmentResult>();
 
             foreach (var combination in _shipCombinations)
-                results.Add(assignmentInstance.Start(new[]
-                {
-                    _ships[combination[0]],
-                    _ships[combination[1]],
-                    _ships[combination[2]]
-                }));
+                results.Add(assignmentInstance.Start(combination));
 
             _logger.WriteLine("Analysed " + results.Count + " ship combinations in " + sw.ElapsedMilliseconds +
                               " milliseconds.");

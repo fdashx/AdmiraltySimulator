@@ -18,13 +18,13 @@ namespace AdmiraltySimulator
             _ships = new Dictionary<string, Ship>();
         }
 
-        public List<Ship> GetAvailableShips()
+        public List<Ship> GetAvailableShips(bool includeOneTimeShips = true)
         {
             var ships = new List<Ship>();
 
             foreach (var ship in _ships.Values)
             {
-                var sameShipCount = ship.OneTimeUses;
+                var sameShipCount = includeOneTimeShips ? ship.OneTimeUses : 0;
 
                 if (ship.IsOwned
                     && ship.MaintenanceFinish < DateTime.Now)

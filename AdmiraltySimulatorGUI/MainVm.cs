@@ -49,6 +49,7 @@ namespace AdmiraltySimulatorGUI
         private List<Event> _events;
         private Assignment _selectedAssignment;
         private Event _selectedEvent;
+        private bool _useOneTimeShips;
 
         public MainVm(
             ILogger logger,
@@ -299,6 +300,12 @@ namespace AdmiraltySimulatorGUI
             }
         }
 
+        public bool UseOneTimeShips
+        {
+            get => _useOneTimeShips;
+            set => SetProperty(ref _useOneTimeShips, value, nameof(UseOneTimeShips));
+        }
+
         public void SaveGrid(string file)
         {
             try
@@ -442,7 +449,7 @@ namespace AdmiraltySimulatorGUI
                 return;
 
             var resultVms = new List<ResultVm>();
-            var results = Simulator.GetResults(assignment, true);
+            var results = Simulator.GetResults(assignment, true, UseOneTimeShips);
 
             foreach (var result in Simulator.GetTop(results, new[] { "name" }, results.Count))
                 resultVms.Add(new ResultVm(result));
@@ -523,11 +530,12 @@ namespace AdmiraltySimulatorGUI
 
         private void PopulateAssignmentInfo(Assignment assignment)
         {
-            CritRewardMult = assignment.HasCriticalReward ? "1.5" : "1";
+            CritRewardMult = assignment.HasCriticalReward ? "1.5" : "1"; // EC and Dil are 50% more when critical
             EngReq = assignment.ReqEng.ToString();
             TacReq = assignment.ReqTac.ToString();
             SciReq = assignment.ReqSci.ToString();
             Duration = assignment.Duration.ToString(FmtDuration);
+            UseOneTimeShips = assignment.HasCriticalReward; // Don't waste one time ships on filler assignments
         }
 
         private void PopulateEventInfo(Event selectedEvent)
