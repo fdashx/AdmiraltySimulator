@@ -448,13 +448,7 @@ namespace AdmiraltySimulatorGUI
             if (assignment == null)
                 return;
 
-            var resultVms = new List<ResultVm>();
-            var results = Simulator.GetResults(assignment, true, UseOneTimeShips);
-
-            foreach (var result in Simulator.GetTop(results, new[] { "name" }, results.Count))
-                resultVms.Add(new ResultVm(result));
-
-            Results = resultVms;
+            Results = Simulator.GetResults(assignment, true, UseOneTimeShips).Select(r => new ResultVm(r)).ToList();
         }
 
         public void ExecuteResult()
