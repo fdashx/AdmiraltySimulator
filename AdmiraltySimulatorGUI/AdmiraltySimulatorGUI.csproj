@@ -159,6 +159,7 @@
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ResultVm.cs" />
     <Compile Include="ShipVm.cs" />
+    <Compile Include="WindowLayoutConfig.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

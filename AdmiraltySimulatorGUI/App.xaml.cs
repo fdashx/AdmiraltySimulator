@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System;
 using System.IO;
 using System.Windows;
 using AdmiraltySimulator;
@@ -11,6 +10,8 @@ namespace AdmiraltySimulatorGUI
     /// </summary>
     public partial class App : Application
     {
+        private const string gridLayoutFile = "gridLayout.xml";
+        private const string windowLayoutFile = "windowLayout.ini";
         private MainWindow _mainView;
         private MainVm _mainVm;
 
@@ -23,80 +24,65 @@ namespace AdmiraltySimulatorGUI
             var fileDialogService = new FileDialogService();
             _mainVm = new MainVm(logger, fileDialogService, shipManager, new AssignmentParser(logger),
                 new AssignmentSimulator(logger, shipManager));
-            _mainView = new MainWindow {DataContext = _mainVm};
-            LoadWindowLayout();
+            _mainView = new MainWindow { DataContext = _mainVm };
+            _mainView.Loaded += (sender, args) =>
+            {
+                LoadWindowLayout(logger);
+
+                if (File.Exists(gridLayoutFile))
+                {
+                    _mainVm.LoadGrid(gridLayoutFile);
+                }
+            };
             _mainView.Show();
-            _mainVm.LoadGrid("gridLayout.xml");
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            base.OnExit(e);
-
-            var settings = new List<string>
-            {
-                "window.position=" + _mainView.Left + "," + _mainView.Top + "," + _mainView.Width + "," +
-                _mainView.Height,
-                "log.height=" + _mainView.LogRow.Height.Value,
-                "ships.section.width=" + _mainView.ShipsColumn.Width.Value,
-                "assignment.section.width=" + _mainView.AssignmentColumn.Width.Value,
-                "is.maximised=" + (_mainView.WindowState == WindowState.Maximized)
-            };
-
             try
             {
-                File.WriteAllLines("windowLayout.ini", settings);
-                _mainVm.SaveGrid("gridLayout.xml");
+                var cfg = new WindowLayoutConfig()
+                {
+                    WindowLeft = _mainView.Left,
+                    WindowTop = _mainView.Top,
+                    WindowWidth = _mainView.Width,
+                    WindowHeight = _mainView.Height,
+                    LogHeight = _mainView.LogRow.ActualHeight,
+                    ShipsSectionWidth = _mainView.ShipsColumn.ActualWidth,
+                    AssignmentSectionWidth = _mainView.AssignmentColumn.ActualWidth,
+                    IsMaximized = _mainView.WindowState == WindowState.Maximized,
+                };
+                _mainVm.SaveGrid(gridLayoutFile);
+                File.WriteAllLines(windowLayoutFile, cfg.SaveToString());
             }
-            catch
+            finally
             {
+                base.OnExit(e);
             }
         }
 
-        private void LoadWindowLayout()
+        private void LoadWindowLayout(ILogger logger)
         {
+            if (!File.Exists(windowLayoutFile))
+            {
+                return;
+            }
+
             try
             {
-                foreach (var line in File.ReadAllLines("windowLayout.ini"))
-                {
-                    var idx = line.IndexOf("=");
-
-                    if (idx < 0)
-                    {
-                        continue;
-                    }
-
-                    if (line.StartsWith("window.position"))
-                    {
-                        var pos = line.Substring(idx + 1).Split(',');
-                        _mainView.Left = double.Parse(pos[0], CultureInfo.InvariantCulture);
-                        _mainView.Top = double.Parse(pos[1], CultureInfo.InvariantCulture);
-                        _mainView.Width = double.Parse(pos[2], CultureInfo.InvariantCulture);
-                        _mainView.Height = double.Parse(pos[3], CultureInfo.InvariantCulture);
-                    }
-                    else if (line.StartsWith("log.height"))
-                    {
-                        _mainView.LogRow.Height =
-                            new GridLength(double.Parse(line.Substring(idx + 1), CultureInfo.InvariantCulture));
-                    }
-                    else if (line.StartsWith("ships.section.width"))
-                    {
-                        _mainView.ShipsColumn.Width =
-                            new GridLength(double.Parse(line.Substring(idx + 1), CultureInfo.InvariantCulture));
-                    }
-                    else if (line.StartsWith("assignment.section.width"))
-                    {
-                        _mainView.AssignmentColumn.Width =
-                            new GridLength(double.Parse(line.Substring(idx + 1), CultureInfo.InvariantCulture));
-                    }
-                    else if (line.StartsWith("is.maximised"))
-                    {
-                        _mainView.WindowState = WindowState.Maximized;
-                    }
-                }
+                var cfg = WindowLayoutConfig.LoadFromString(File.ReadLines(windowLayoutFile));
+                _mainView.Left = cfg.WindowLeft;
+                _mainView.Top = cfg.WindowTop;
+                _mainView.Width = cfg.WindowWidth;
+                _mainView.Height = cfg.WindowHeight;
+                _mainView.LogRow.Height = new GridLength(cfg.LogHeight);
+                _mainView.ShipsColumn.Width = new GridLength(cfg.ShipsSectionWidth);
+                _mainView.AssignmentColumn.Width = new GridLength(cfg.AssignmentSectionWidth);
+                _mainView.WindowState = cfg.IsMaximized ? WindowState.Maximized : WindowState.Normal;
             }
-            catch
+            catch (Exception e)
             {
+                logger.WriteLine("Failed to load window layout: " + e);
             }
         }
     }
