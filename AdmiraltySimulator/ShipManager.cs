@@ -24,7 +24,7 @@ namespace AdmiraltySimulator
 
             foreach (var ship in _ships.Values)
             {
-                var sameShipCount = includeOneTimeShips ? ship.OneTimeUses : 0;
+                var sameShipCount = includeOneTimeShips || ship.Name == NoShip ? ship.OneTimeUses : 0;
 
                 if (ship.IsOwned
                     && ship.MaintenanceFinish < DateTime.Now)
@@ -46,10 +46,8 @@ namespace AdmiraltySimulator
         {
             var owned = new List<string>();
             var oneTime = new List<string>();
-            _ships[NoShip].IsOwned = false;
-            _ships[NoShip].OneTimeUses = 2;
 
-            foreach (var ship in _ships.Values)
+            foreach (var ship in _ships.Values.Where(s => s.Name != NoShip))
             {
                 if (ship.IsOwned)
                 {
@@ -90,10 +88,12 @@ namespace AdmiraltySimulator
                     if (TryParseShip(line, out var ship))
                         _ships[ship.Name] = ship;
 
-                if (!_ships.ContainsKey(NoShip))
-                    _ships[NoShip] = new Ship(NoShip, ShipType.None, 0, 0, 0, new TimeSpan(0), new IAbility[0]);
-
                 _logger.WriteLine($"Loaded {_ships.Count} ships from \"{file}\"");
+
+                if (!_ships.ContainsKey(NoShip))
+                    _ships[NoShip] = new Ship(NoShip, ShipType.None, 0, 0, 0, new TimeSpan(0), Array.Empty<IAbility>())
+                        { OneTimeUses = 2 };
+
                 return true;
             }
             catch (Exception e)
@@ -152,7 +152,7 @@ namespace AdmiraltySimulator
         {
             try
             {
-                foreach (var ship in _ships.Values)
+                foreach (var ship in _ships.Values.Where(s => s.Name != NoShip))
                 {
                     ship.OneTimeUses = 0;
                 }
@@ -175,6 +175,11 @@ namespace AdmiraltySimulator
                     if (!_ships.TryGetValue(vals[1].Trim(), out var ship))
                     {
                         _logger.WriteLine("Ship not found in database: " + vals[1]);
+                        continue;
+                    }
+
+                    if (ship.Name == NoShip)
+                    {
                         continue;
                     }
 
