@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 
 namespace AdmiraltySimulator
 {
@@ -11,7 +10,7 @@ namespace AdmiraltySimulator
         private readonly double _minSuccess;
         private readonly ShipManager _shipManager;
         private bool _calcCombination;
-        private List<List<Ship>> _shipCombinations;
+        private List<Ship[]> _shipCombinations;
         private List<Ship> _ships;
 
         public AssignmentSimulator(ILogger logger, ShipManager shipManager, double minSuccess = 0)
@@ -33,7 +32,8 @@ namespace AdmiraltySimulator
             if (_calcCombination || recalcCombination)
             {
                 _ships = _shipManager.GetAvailableShips(useOneTimeShips);
-                _shipCombinations = _ships.Combinations(3).ToList();
+                _shipCombinations = new List<Ship[]>((int)Combination.Coefficient(_ships.Count, 3));
+                _shipCombinations.AddRange(_ships.Combinations(3));
                 _calcCombination = false;
             }
 
